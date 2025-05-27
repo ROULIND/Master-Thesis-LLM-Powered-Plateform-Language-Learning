@@ -2,8 +2,6 @@
 
 # *Master-Thesis-LLM-Powered-Plateform-Language-Learning*
 
-<img width="500" alt="System Architecture" src="./6-Images/Complete-Architecture.png">
-
 ---
 
 ## Table of Contents
