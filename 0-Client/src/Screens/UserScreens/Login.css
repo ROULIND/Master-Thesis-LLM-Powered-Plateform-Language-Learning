@@ -1,0 +1,41 @@
+/* src/Login.css */
+
+.form-container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popup {
+  background: rgb(253,115,92);
+  background: -moz-linear-gradient(30deg, rgba(253,115,92,1) 0%, rgba(219,131,25,1) 66%);
+  background: -webkit-linear-gradient(30deg, rgba(253,115,92,1) 0%, rgba(219,131,25,1) 66%);
+  background: linear-gradient(30deg, rgba(253,115,92,1) 0%, rgba(219,131,25,1) 66%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fd735c", endColorstr="#db8319", GradientType=1);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
