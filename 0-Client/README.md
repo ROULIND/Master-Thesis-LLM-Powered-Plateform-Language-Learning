@@ -108,7 +108,3 @@ gcloud app browse
 
 * If you encounter errors with API requests, check that your backend server is running and CORS policies are correctly configured.
 * For Google Cloud deployments, ensure your billing is enabled and quotas are sufficient.
-
----
-
-Let me know if you want to add a features section, contributors, or anything else!
