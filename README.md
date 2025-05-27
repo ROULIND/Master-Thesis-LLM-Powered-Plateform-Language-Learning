@@ -63,7 +63,7 @@ Key components include:
 * **Cloud Infrastructure:**
   Google Cloud Platform (GCP) with App Engine and Cloud Run for deployment, and a VM for Elasticsearch.
 
-<img width="500" alt="System Architecture" src="./6-Images/Complete-Architecture.png">
+<img style="width: 100%;" alt="System Architecture" src="./6-Images/Complete-Architecture.png">
 
 ---
 
