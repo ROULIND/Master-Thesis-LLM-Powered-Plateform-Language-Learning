@@ -100,7 +100,8 @@ cd Master-Thesis-LLM-Powered-Plateform-Language-Learning
 Each module can be deployed separately (see their individual READMEs).
 
 * **Client App:** [Deployment instructions](./0-Client/README.md)
-* **Backend:** [Deployment instructions](./1-Admin/README.md)
+* **Admin App:** [Deployment instructions](./1-Admin/README.md)
+* **Backend:** [Deployement instructions](./2-Backend/README.md)
 * **Microservices:** [Deployment instructions](./3-Services/README.md)
 
 **Production deployment** uses Google Cloud App Engine and Cloud Run.
