@@ -128,47 +128,31 @@ const CrudTable = () => {
                 }
             };
 
-            const response = await fetch(`${apiUrl}/admin/edit-video/${editedVideo.videoId}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(updatedVideoData),
-            });
+            const response = await fetch(
+                `${apiUrl}/video/edit/${editedVideo.videoId}`,
+                {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-admin-password': process.env.REACT_APP_ADMIN_PASSWORD
+                    },
+                    body: JSON.stringify(updatedVideoData),
+                }
+            );
 
             if (response.ok) {
                 console.log('Video updated successfully');
-
-                // Call the update-video-in-elasticsearch endpoint
-                try {
-                    const elasticsearchResponse = await fetch(`${autocompleteURL}/update-video-in-elasticsearch`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ videoId: editedVideo.videoId }),
-                    });
-
-                    if (elasticsearchResponse.ok) {
-                        const data = await elasticsearchResponse.json();
-                        console.log('Elasticsearch update successful:', data);
-                    } else {
-                        console.error('Error updating Elasticsearch:', elasticsearchResponse.statusText);
-                    }
-                } catch (elasticsearchError) {
-                    console.error('Error updating Elasticsearch index:', elasticsearchError);
-                }
-
-
                 await fetchVideos();
                 setIsDialogOpen(false);
             } else {
-                console.error('Error updating video');
+                const errorText = await response.text();
+                console.error('Error updating video:', errorText);
             }
         } catch (error) {
             console.error('Error updating video:', error);
         }
     };
+
 
     const handleEditVideo = (video) => {
         setEditedVideo(video);
@@ -196,26 +180,33 @@ const CrudTable = () => {
         if (!isConfirmed) {
             return;
         }
-    
-        try {
-            // Delete the video from the main database
-            const response = await fetch(`${apiUrl}/video/delete/${video.videoId}`, {
-                method: 'DELETE',
-            });
 
-    
+        try {
+            const response = await fetch(
+                `${apiUrl}/video/delete/${video.videoId}`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                        'x-admin-password': process.env.REACT_APP_ADMIN_PASSWORD
+                    }
+                }
+            );
+
             if (response.ok) {
                 console.log('Video deleted successfully from the main database.');
-    
                 // Fetch updated video list
                 await fetchVideos();
             } else {
-                console.error('Error deleting video from the main database.');
+                const errorText = await response.text();
+                console.error('Error deleting video from the main database:', errorText);
+                // Optionally show an error dialog to user
             }
         } catch (error) {
             console.error('Error deleting video:', error);
+            // Optionally show an error dialog to user
         }
     };
+
     
 
     const navigate = useNavigate();

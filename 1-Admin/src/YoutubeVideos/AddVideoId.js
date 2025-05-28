@@ -45,61 +45,45 @@ const GetVideos = () => {
         navigate(-1);
     };
 
-    // Function to update Elasticsearch index
-    const updateElasticsearchIndex = async () => {
-        try {
-        const response = await axios.post(`http://127.0.0.1:5003/update-elasticsearch-index`);
-        console.log('Elasticsearch index updated:', response.data);
-        } catch (error) {
-        console.error('Error updating Elasticsearch index:', error);
-        }
-    };
-
-    // Function to generate keywords for the added video
-    const generateKeywords = async (videoId) => {
-        try {
-            const response = await axios.get(`http://127.0.0.1:5003/get-video-keywords?videoId=${videoId}`);
-            console.log('Keywords generated:', response.data);
-        } catch (error) {
-            console.error('Error generating keywords:', error);
-        }
-    };
+  
 
     // Function to handle searching and adding a video
     const handleSearch = () => {
         setLoadingSearchVideo(true);
-        axios.post(`${apiUrl}/video/add/${searchTerm}`)
-            .then(async (response) => {
-                const videoId = searchTerm; // Assuming the videoId is the searchTerm here
-                const title = 'Congratulations';
-                const message = `The video has been added successfully`;
-                const messageServer = `Server message: ${response.data.message}`;
-
-                // Generate keywords for the added video
-                //await generateKeywords(videoId);
-
-                // Update the Elasticsearch index after generating keywords
-                //await updateElasticsearchIndex();
-
-                setLoadingSearchVideo(false);
-                handleOpenDialog(title, message, messageServer, false);
-            })
-            .catch(error => {
-                console.error('Error adding video:', error);
-                if (error.response && error.response.status === 400) {
-                    const title = 'Oops';
-                    const message = `There was an error adding the video`;
-                    const messageServer = `Server message: ${error.response.data.error}`;
-                    setLoadingSearchVideo(false);
-                    handleOpenDialog(title, message, messageServer, true);
-                } else {
-                    const title = 'Oops';
-                    const message = `There was an error adding the video`;
-                    const messageServer = `Server message: ${error}`;
-                    setLoadingSearchVideo(false);
-                    handleOpenDialog(title, message, messageServer, true);
+        axios.post(
+            `${apiUrl}/video/add/${searchTerm}`,
+            {}, // no body, unless needed
+            {
+                headers: {
+                    'x-admin-password': process.env.REACT_APP_ADMIN_PASSWORD
                 }
-            });
+            }
+        )
+        .then(async (response) => {
+            const videoId = searchTerm; // Assuming the videoId is the searchTerm here
+            const title = 'Congratulations';
+            const message = `The video has been added successfully`;
+            const messageServer = `Server message: ${response.data.message}`;
+
+            setLoadingSearchVideo(false);
+            handleOpenDialog(title, message, messageServer, false);
+        })
+        .catch(error => {
+            console.error('Error adding video:', error);
+            if (error.response && error.response.status === 400) {
+                const title = 'Oops';
+                const message = `There was an error adding the video`;
+                const messageServer = `Server message: ${error.response.data.error}`;
+                setLoadingSearchVideo(false);
+                handleOpenDialog(title, message, messageServer, true);
+            } else {
+                const title = 'Oops';
+                const message = `There was an error adding the video`;
+                const messageServer = `Server message: ${error}`;
+                setLoadingSearchVideo(false);
+                handleOpenDialog(title, message, messageServer, true);
+            }
+        });
     };
 
     return (

@@ -26,12 +26,28 @@ Before starting the app, create a `.env` file in the project root with the follo
 * **Set the admin app port (recommended: avoid conflict with backend/client):**
   `PORT=3002`
 
-**Example `.env`:**
+
+* **Admin Password**
+
+  * Set the password used to secure sensitive admin functions (add, edit, delete videos, etc):
+    `REACT_APP_ADMIN_PASSWORD='your_admin_password'`
+
+
+> **Important:**
+> Make sure to make the password match the backend admin password you set up in it's `.env`.
+> Make sure to use a strong password. Never commit your `.env` to source control.
+
+
+
+**Example `.env`**
 
 ```env
 # Backend API URL (choose one)
-REACT_APP_API_URL='http://localhost:3000'
-# REACT_APP_API_URL='https://monjoor-backend-203751395944.europe-west6.run.app'
+REACT_APP_API_URL=http://localhost:3000
+# REACT_APP_API_URL=https://monjoor-backend-203751395944.europe-west6.run.app
+
+# Set your password for admin-protected functions
+REACT_APP_ADMIN_PASSWORD=your_admin_password
 
 # Port for admin app
 PORT=3002
@@ -93,3 +109,88 @@ gcloud app browse
 
 * If you encounter errors with API requests, check that your backend server is running and CORS policies are correctly configured.
 * For Google Cloud deployments, ensure your billing is enabled and quotas are sufficient.
+
+
+
+
+
+
+
+
+
+Here’s an improved and **clear README section** for your admin app, including instructions for setting the admin password and an updated `.env` example:
+
+---
+
+## Environment Configuration
+
+Before starting the admin app, **create a `.env` file in the project root** with the following variables:
+
+---
+
+### **API URL**
+
+* **For local development:**
+
+  ```
+  REACT_APP_API_URL=http://localhost:3000
+  ```
+* **For production/deployed version:**
+
+  ```
+  REACT_APP_API_URL=https://monjoor-backend-203751395944.europe-west6.run.app
+  ```
+
+---
+
+### **Admin Password**
+
+Set the password used to secure sensitive admin functions (add, edit, delete videos, etc):
+
+```
+REACT_APP_ADMIN_PASSWORD=your_admin_password
+```
+
+> **Important:**
+> Make sure to use a strong password. Never commit your `.env` to source control.
+
+---
+
+### **Other Configurations**
+
+* **Autocomplete API (if needed):**
+
+  ```
+  REACT_APP_AUTOCOMPLETE_URL=http://127.0.0.1:8080
+  ```
+
+* **Port for admin app (recommended: avoid conflict with backend/client):**
+
+  ```
+  PORT=3002
+  ```
+
+---
+
+### **Example `.env`**
+
+```env
+# Backend API URL (choose one)
+REACT_APP_API_URL=http://localhost:3000
+# REACT_APP_API_URL=https://monjoor-backend-203751395944.europe-west6.run.app
+
+# Set your password for admin-protected functions
+REACT_APP_ADMIN_PASSWORD=your_admin_password
+
+# Port for admin app
+PORT=3002
+```
+
+---
+
+* After updating your `.env`, **restart the app** (`npm start`) for changes to take effect.
+* `.env` should **always** be in your `.gitignore`.
+
+---
+
+Let me know if you want to add a quick section about **how the admin password is used** or any other note for contributors!
