@@ -36,8 +36,6 @@ Choose the backend endpoint that fits your development setup:
   REACT_APP_API_URL=https://monjoor-backend-203751395944.europe-west6.run.app
   ```
 
----
-
 ### **Firebase Configuration**
 
 Replace the placeholders below (`<...>`) with your actual Firebase project credentials:
@@ -55,7 +53,6 @@ REACT_APP_FIREBASE_APP_ID=<your_firebase_app_id>
 
 You can find these values in your [Firebase Console](https://console.firebase.google.com/) under **Project Settings > General > Your apps > Firebase SDK snippet**.
 
----
 
 ### **Sample `.env` File**
 
