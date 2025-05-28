@@ -4,16 +4,19 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 import { getDatabase, ref, set } from 'firebase/database';
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyDlppyRO84GLZHVlOAoinc9YVgBFN4mY-A",
-  authDomain: "monjoor-2025-ea947.firebaseapp.com",
-  databaseURL: "https://monjoor-2025-ea947-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "monjoor-2025-ea947",
-  storageBucket: "monjoor-2025-ea947.firebasestorage.app",
-  messagingSenderId: "746846396198",
-  appId: "1:746846396198:web:d30e32a74959755d7eebe7"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
+
+console.log('Firebase config:', firebaseConfig); // Print firebaseConfig to the console
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

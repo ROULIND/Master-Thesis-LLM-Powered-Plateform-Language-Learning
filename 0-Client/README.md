@@ -13,42 +13,72 @@ The app is built with **React** and communicates with the backend via RESTful AP
 * **Production URL**: [https://client-dot-monjoor-2025.oa.r.appspot.com/](https://client-dot-monjoor-2025.oa.r.appspot.com/)
 
 
+Here’s a **clean and clear update** for your README section on environment configuration, **including the Firebase config** and using **placeholders** for sensitive values.
+
+---
 
 ## Environment Configuration
 
-Before starting the app, create a `.env` file in the project root with the following variables:
+Before starting the app, **create a `.env` file in the project root** with the following variables:
 
-* **Update `REACT_APP_API_URL` depending on your setup:**
+### **Backend API URL**
 
-  * For local development, use your local backend:
-    `REACT_APP_API_URL='http://localhost:3000'`
-  * For production/deployed version, use the deployed backend URL:
-    `REACT_APP_API_URL='https://monjoor-backend-203751395944.europe-west6.run.app'`
+Choose the backend endpoint that fits your development setup:
 
-* **Configure Elasticsearch:**
+* **For local development:**
 
-  * Set the index name:
-    `REACT_APP_INDEX_NAME='your_index_name'`
-  * Set the API key:
-    `REACT_APP_API_KEY='your_api_key'`
+  ```
+  REACT_APP_API_URL=http://localhost:3000
+  ```
+* **For production/deployed version:**
 
-* **Set the client port (recommended: avoid conflict with backend):**
-  `PORT=3001`
+  ```
+  REACT_APP_API_URL=https://monjoor-backend-203751395944.europe-west6.run.app
+  ```
 
-**Example `.env`:**
+---
+
+### **Firebase Configuration**
+
+Replace the placeholders below (`<...>`) with your actual Firebase project credentials:
+
+```env
+# --- Firebase Configuration ---
+REACT_APP_FIREBASE_API_KEY=<your_firebase_api_key>
+REACT_APP_FIREBASE_AUTH_DOMAIN=<your_firebase_auth_domain>
+REACT_APP_FIREBASE_DATABASE_URL=<your_firebase_database_url>
+REACT_APP_FIREBASE_PROJECT_ID=<your_firebase_project_id>
+REACT_APP_FIREBASE_STORAGE_BUCKET=<your_firebase_storage_bucket>
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=<your_firebase_messaging_sender_id>
+REACT_APP_FIREBASE_APP_ID=<your_firebase_app_id>
+```
+
+You can find these values in your [Firebase Console](https://console.firebase.google.com/) under **Project Settings > General > Your apps > Firebase SDK snippet**.
+
+---
+
+### **Sample `.env` File**
 
 ```env
 # Backend API URL (choose one)
-REACT_APP_API_URL='http://localhost:3000'
-# REACT_APP_API_URL='https://monjoor-backend-203751395944.europe-west6.run.app'
+REACT_APP_API_URL=http://localhost:3000
+# REACT_APP_API_URL=https://monjoor-backend-203751395944.europe-west6.run.app
 
-# Elasticsearch configuration
-REACT_APP_INDEX_NAME='your_index_name'
-REACT_APP_API_KEY='your_api_key'
+# --- Firebase Configuration ---
+REACT_APP_FIREBASE_API_KEY=<your_firebase_api_key>
+REACT_APP_FIREBASE_AUTH_DOMAIN=<your_firebase_auth_domain>
+REACT_APP_FIREBASE_DATABASE_URL=<your_firebase_database_url>
+REACT_APP_FIREBASE_PROJECT_ID=<your_firebase_project_id>
+REACT_APP_FIREBASE_STORAGE_BUCKET=<your_firebase_storage_bucket>
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=<your_firebase_messaging_sender_id>
+REACT_APP_FIREBASE_APP_ID=<your_firebase_app_id>
 
 # Port for client app
 PORT=3001
+
 ```
+
+---
 
 
 
