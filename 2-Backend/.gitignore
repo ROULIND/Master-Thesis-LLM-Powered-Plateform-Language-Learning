@@ -19,4 +19,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-monjoor-bucket-storage-key.json
+monjoor-bucket-storage-key.json.env
