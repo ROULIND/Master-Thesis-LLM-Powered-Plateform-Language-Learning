@@ -1,0 +1,5 @@
+DifficultyModelVenv/
+monjoor-bucket-storage-key.json
+./German/germanDifficultyModel/
+./French/frenchDifficultyModel
+*.DS_Store
