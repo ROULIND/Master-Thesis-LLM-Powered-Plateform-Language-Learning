@@ -6,7 +6,7 @@ If your image is in `6-Images/`, adapt the path accordingly.
 
 # Difficulty Classification Study
 
-<img src="6-Images/Difficulty-Classification-Summary.png" alt="Difficulty Classification Results" style="width: 80%; margin: 24px 0;">
+<img src="../6-Images/Difficulty-Classification-Summary.png" alt="Difficulty Classification Results" style="width: 80%; margin: 24px 0;">
 
 *Final summary of model performances for CEFR-level sentence difficulty classification in German and French.*
 
