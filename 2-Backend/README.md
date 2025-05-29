@@ -120,7 +120,7 @@ Here’s a summary of core endpoints (see code or OpenAPI/Postman documentation 
 | PUT    | `/video/edit/:videoId`             | Update video details                                   |
 | PUT    | `/video/update-fields/`            | Update specific fields of one or more videos           |
 
-> **Admin routes require the `ADMIN_PASSWORD` set in your `.env` and must be sent as a header in the request.**
+> **The following request require the `ADMIN_PASSWORD` set in your `.env` and must be sent as a header in the request: `/video/add/:videoId`, `/video/delete/:videoId`, `/video/edit/:videoId`, `/video/update-fields/`**
 
 ---
 
