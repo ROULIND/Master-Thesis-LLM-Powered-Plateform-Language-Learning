@@ -4,6 +4,14 @@
 
 ---
 
+## Presentation Video
+
+▶️ **Watch the project presentation:**  
+[![Presentation Video](https://img.youtube.com/vi/W5W6cQpwNNQ/0.jpg)](https://www.youtube.com/watch?v=W5W6cQpwNNQ&ab_channel=DimitriRoulin)  
+[https://www.youtube.com/watch?v=W5W6cQpwNNQ&ab_channel=DimitriRoulin](https://www.youtube.com/watch?v=W5W6cQpwNNQ&ab_channel=DimitriRoulin)
+
+---
+
 ## Table of Contents
 
 * [Project Overview](#project-overview)
@@ -11,7 +19,6 @@
 * [Modules](#modules)
 * [Getting Started](#getting-started)
 * [Deployment](#deployment)
-* [Documentation](#documentation)
 * [Contributing](#contributing)
 * [License](#license)
 * [Acknowledgments](#acknowledgments)
@@ -107,11 +114,6 @@ Each module can be deployed separately (see their individual READMEs).
 **Production deployment** uses Google Cloud App Engine and Cloud Run.
 See the `/infrastructure` folder for configuration files and deployment scripts.
 
----
-
-## Documentation
-
-Todo
 
 ---
 
