@@ -96,6 +96,8 @@ You can directly interact with the API by sending requests to the provided endpo
 5. **Test the Service**:
    - Visit [http://localhost:8080](http://localhost:8080) in your browser to check the health of the service.
    - Use tools like `Postman` or `curl` to test the endpoints.
+   - For more details or API examples, see the [Postman collection](../../5-Postman/) or your API documentation.
+   
 
 ---
 

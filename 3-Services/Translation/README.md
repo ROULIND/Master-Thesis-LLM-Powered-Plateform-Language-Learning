@@ -88,6 +88,7 @@ You can directly interact with the API by sending requests to the provided endpo
 
 5. **Test the Service**:
    - Use tools like `Postman`, `curl`, or a browser (for GET requests) to test the `/translate` endpoint.
+   - For more details or API examples, see the [Postman collection](../../5-Postman/) or your API documentation.
 
 ---
 
