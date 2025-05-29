@@ -1,0 +1,11 @@
+sentence,difficulty,text_id,sentence_length,sentence_tokens,total_tokens_per_call,difficulty_reviewed,readability,difficulty_label,prediction_gpt-4.1
+"Es steht an gefährlichen Kreuzungen oder Einmündungen, an denen leicht Unfälle passieren können.",3,638,13,,,B2,49.82,B2,B1
+"1988 entstand in den USA die „International Dark Sky Association“ (IDA), eine Vereinigung von Astronomen, die aktiv über „Lichtverschmutzung“ aufklärt und gegen sie kämpft.",4,283,24,43.0,150.0,C1,38.66,C1,C1
+"Die Denkweise, Häuser als Maschinen, in denen Menschen leben, zu verstehen, wie es einmal ein Architekt des 20. Jahrhunderts ausgedrückt hat, hat fatale Auswirkungen.",5,unknown,24,,,C2,67.76,C2,C1
+"Architekten können heute keine Bauwerke mehr schaffen wie das Bremer Rathaus, das über Jahrhunderte hinweg ein Symbol der Bürgerschaft war und ist.",5,unknown,22,,,C2,57.61,C2,C1
+60 Prozent verwenden das Taschengeld auch für Zeitschriften oder Comics.,2,654,10,,,B1,86.71,B1,A2
+Eine Jury wählte dann 15. 000 Gewinner aus – alle genau 18 Jahre alt und EU-Bürger.,2,466,16,24.0,129.0,B1,89.24,B1,B1
+Aber die Frauen besannen sich auf das Erbe der beiden Käsepioniere.,4,486,11,17.0,123.0,C1,68.77,C1,B2
+… schlüpft … PATRIK RIKLIN: … schlüpft eigentlich in dieses Kunstwerk hinein.,1,450,12,25.0,130.0,A2,87.72,A2,B1
+"Nach zwei Jahren Hauptschule wechselte er auf ein Gymnasium, machte mit Bestnoten sein Abitur, studierte Mathematik und Philosophie und promovierte in Linguistik.",4,302,22,35.0,147.0,C1,57.61,C1,C1
+Es gibt keine langen Transportwege mit entsprechendem Qualitätsverlust.,4,319,8,12.0,121.0,C1,63.36,C1,B2

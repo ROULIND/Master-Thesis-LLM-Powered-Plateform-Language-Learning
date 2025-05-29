@@ -1,0 +1,10 @@
+*.safetensors
+*.bin
+*.onnx
+*.png
+*.jpg
+*.jpeg
+*.pt
+*.h5
+*.ckpt
+*.DS_Store
