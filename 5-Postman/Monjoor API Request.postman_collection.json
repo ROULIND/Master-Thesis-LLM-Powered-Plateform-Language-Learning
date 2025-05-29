@@ -1,0 +1,763 @@
+{
+	"info": {
+		"_postman_id": "a1d74055-ccb5-4662-8ba9-30669d3bf7b4",
+		"name": "Monjoor API Request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38583964"
+	},
+	"item": [
+		{
+			"name": "Backend",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Get Statistics",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/admin/statistics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"statistics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Backup Elasticsearch index Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"indexName\":\"trending_videos_youtube_elastic_data_v3\",\n    \"backupDir\":\"./backup\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/backupElasticsearchIndex",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"backupElasticsearchIndex"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Synchronize Elasticsearh and DB",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/syncElasticsearchIndex",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"syncElasticsearchIndex"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Restore Data in Elasticsearch index",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"indexName\":\"trending_videos_youtube_elastic_data_v3\",\n    \"backupDir\":\"./backup\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/admin/restoreElasticsearchIndex",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"restoreElasticsearchIndex"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get video by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storage/videos/sJAnSiWrjRk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storage",
+								"videos",
+								"sJAnSiWrjRk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all videos in DB",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/storage/videos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"storage",
+								"videos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for videos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/video/search?query=\"Football\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "\"Football\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get translation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/translation/translate?word=\"Puis dans laquelle,\"",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"translation",
+								"translate"
+							],
+							"query": [
+								{
+									"key": "word",
+									"value": "\"Puis dans laquelle,\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autocomplete search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/video/autocomplete?query=int&userLanguage=fr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"autocomplete"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "int"
+								},
+								{
+									"key": "userLanguage",
+									"value": "fr"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recomended videos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transcript\" :\"L'intelligence artificielle a révolutionné de nombreux aspects de notre vie de tous les jours. Composée de données, d’algorithmes, de matériel et de connectivité, l’IA permet aux machines d’imiter certains aspects de l'intelligence humaine comme la perception, la résolution de problèmes,  l'interaction linguistique ou même la créativité. Ces technologies facilitent la mise en œuvre du Programme de développement durable à l’horizon 2030. Par exemple, l’IA permet d’analyser l’apprentissage des élèves et leur fournit de meilleurs outils dans les zones rurales où l’enseignement manque de ressources. Les principes DOAM de l’UNESCO guident le développement de l’IA et s’assurent qu’il respecte les droits de l’homme, qu’il soit ouvert, accessible, basé sur une gouvernance multi-parties prenantes et inclusif,   en particulier en matière de genre.    Pour en savoir plus sur l’IA et les droits de l’homme, regardez la prochaine vidéo !\",\n    \"videoId\": \"cX9V3iNBUoo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video/recommendation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"recommendation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a video to the DB",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/video/add/sJAnSiWrjRk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"add",
+								"sJAnSiWrjRk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a video to the DB (de)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/video/add/hLoatpfE7VM",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"add",
+								"hLoatpfE7VM"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a video by id in DB",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/video/delete/sJAnSiWrjRk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"delete",
+								"sJAnSiWrjRk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a video details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"videoTitle\": \"Qu'est-ce que l'intelligence artificelle ?\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video/edit/cX9V3iNBUoo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"edit",
+								"cX9V3iNBUoo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fields of Video",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"videoId\": [\"KQrxq4QSXhg\",\"_1uN7o1PpZo\"],\n  \"fieldsToUpdate\": [\"channelImage\"]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/video/update-fields/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"video",
+								"update-fields",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DifficultyModel Service",
+			"item": [
+				{
+					"name": "Predict Transcript Difficulty (de)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transcript\": \"Liebe Easy German Community, ihr seid einfach toll. Hier lernt ihr engagiert Deutsch. Ihr schreibt tolle Kommentare auf YouTube und offpage, und ihr seht einfach gut aus. Ich hoffe, dass ihr diese Komplimente annehmen könntet. Ich werde heute mal hier in Berlin schauen, welche Komplimente die Menschen so in letzter Zeit bekommen haben und welche Komplimente sie anderen Leuten geben. Los geht's. (Musik) Also, erstmal möchte ich ihnen ein Kompliment geben. Ich habe vier Grad schon gesehen. Sie haben die ganze Zeit so ein schönes Lächeln auf dem Gesicht. Muss man doch, hier kann man doch so richtig entspannt seine Runden drehen. Muss nichts, kann alles, was man will, und keiner lässt den anderen das geht so anderen da vorbei. Die Kinder sind hier mitten. Bank ist doch schön. Dass es schön ist, so herrlich. Ja, bekommen sie das Kompliment häufiger? Dass ab und zu, ja, also in letzter Zeit nicht mehr so hoch ist. Die Lage ist etwas angespannt. Doch was ist das letzte Kompliment, das ihr bekommen habt oder jemand anderen gemacht hat, das zugesagt wurde? Schon vorgelesen, ich denke ja. Was hast du vorgelesen? Wow, ja, die Kirche nur, warum tritt Tour, ist faszinierend. Also, also, freiwilliger, freilich nicht lesen, meine Frau hat neulich zu mir gesagt, hat dem, wir die Hündin haben, werde ich vitaler. Wir haben sie jetzt erst seit sechs Wochen, darüber habe ich mich sehr gefreut, weil ich es drei Mal am Tag fahren raus muss, das fand ich schön. Doch ich habe tatsächlich neuerlichen Comp, die Menschen meinen Namen bekommen, das war das letzte, was ich bekommen habe. Lena-Maria, nachdem man es mir gemeint, dass es ein sehr schöner Name ist, das war auch sehr überraschend, tatsächlich, kann ich ja, das ist ein schöner Name. Wieso war das überraschend für dich? Weiß nicht, halt, irgendwie, noch nie jemand gesagt, also so offensichtlich dieses Soja vor, der schöne Name, habe ich so noch nie gehört, einfach. Ja, und wie hast du dich gefühlt? Gut beim gutes Gefühl, ja, doch ist schon mal schön. Ist halt so was ja, gerade wenn man nicht damit rechnet, glaube ich, dann das ist ja immer ganz cool. Also, erst mal, bevor ich ihnen die Frage stelle, das ist ja fantastisch, was sie hier machen, ja, das sieht ja total schön aus. Wir sind ein ehrenamtlicher Verein, ehrenamtlich, das ist der Bürgerpark-Verein, hierfür den Bürgerpark entsprechend, ja, und wir arbeiten ehrenamtlich seit fünf Jahren. Bekommen sie öfter Komplimente für das, was ihr machen, so wie sie das Menschen kommen und danke schön sagen, dass man das hier macht, und Job an. Schön, das ist ja schade, wenn, wenn sie so ein Kompliment bekommt, eigentlich ganz gut, sehr gut, heiligen kleinen, nämlich eigentlich sondern ganz gut, wirklich, kommen auch manchmal Leute, die drücken 1 5 Euro in die Hand als Spende, oder also die Jüngeren, die gehen jetzt hier auf diese QR-Codes, und da kommen immer viele Gelder zusammen, und damit können wir neue Pflanzen kaufen, ja, ja, bis heute habe ich arbeite Entwicklungszusammenarbeit und Klimafinanzierung, das ist eine richtige, ja, ja, die Männer mit Schulaufgabe, kommen irgendwie gut klettern oder so, klar, der bekommt ständig, wird immer gelobt von mich, also, ich hab mir Kompliment bekommen, man hat gesagt, ich kapiere Dinge schnell. Ein gutes Kompliment finde ich auch, ja, ich habe jemanden Foto geschickt, und dann hat sie zu mir geschrieben, ist eine Freundin in Bulgarien, die schrieb, Mensch, du hast dich aber gut gehalten, wenn man sie über 50 ist, man findet schöngeist, Kompliment, rot gehalten, bedeutet, weil sie nicht so alt aussieht, wie man, ja, ja, das kann ich bestätigen, sind über 50 Jahre, ja, das ist schwierig, das ist schwierig, mein Mann macht mir schon Komplimente manchmal, ich kann jetzt nicht sagen, was das letzte Kompliment war, häufig geht es ums Essen, das ihm gut schmeckt, ich weiß nicht, ob das aufzugehen kommt, ja, keine Nahrung kochen, es schmeckt ihm, finde ich, das spüre ich jetzt, heraus, dass sie nicht so gern, diese Komplimente annehmen können, oder sich nicht so sehr, das Amt schon sein, ja, das kann ich, das da, können sie recht haben. Ja, und wie kommt das, das weiß ich nicht, vielleicht hat man da nicht genug Selbstbewusstsein, könnte ich mir vorstellen, dass man Schwierigkeiten hat, Komplimente anzunehmen, ja, ja, ich ein Kompliment, woran ich mich jetzt nicht so besonders erinnern kann, es, dass ich nachdem ich diese Zeit lang, wie vier trainieren war, viel Sport gemacht habe, irgendwie, das jemand dann eine Freundin zu mir gekommen meinte, er hätte sich aber gut, dass man es nicht auf jeden Fall, dass du trainiert, und das danach links, okay, schön, hat meine Frau kriegt von mir immer, sagen sie mal ein Beispiel, ist aber ein Cash-Carry, jetzt, ich bin krank, und sie ist meine Helferin, oder wie sagt man? Ja, ich pflege ihn, und er macht dafür bildet sich, und Olfen, und machen sie ihm auch Komplimente, ja, ja, natürlich, weil wir sind ja auch, jetzt schon sehr, sehr lange verheiratet, und der ist immer noch mein größter Schatz, und ich möchte das noch lange so bleiben, das sagen, heyward bp, ein Kompliment, eure App ist wirklich super, schnell, Nord-IBM ist heute unser Sponsor und hilft euch dabei, eure Sicherheit zu erhöhen, wenn ihr in einem fremden WLAN-Netz surft, und auf Inhalte aus anderen Ländern zugreifen. Denn mit Nord VPN könnt ihr euch mit einem Server in einem anderen Land verbinden und so eure eigene IP-Adresse verändern. Geht einfach mal auf Nord VPN.com/easygerman oder benutzt den Code easygerman und dann bekommt ihr für das 2-Jahres-Abo einen zusätzlichen Monat gratis und einen riesigen Rabatt. Und wann haben sie denn das letzte Mal jemandem ein Kompliment gegeben und das war das letzte? Woche, letzte Woche, Verhandeln, sondern am sondern man meinen beiden Kindern, weil sie mit mir bei IKEA einkaufen, wann ich will, sie haben sich so wacker geschlagen, dass er ganz toll. Ein Kompliment habe ich gerade eben am Telefon meiner Schwester gemacht, denn die Tierärztin, und die hat sich jetzt spezialisiert sich gerade und hat neue Kontakte geknüpft, und da habe ich zu ihr gesagt, habe ich denn das formuliert, aber es war ein Kompliment, das ich finde, dass richtig gut ihren Weg geht, also dass sie hatte auch mal so einer Zeit, wo so ein bisschen überlegt, aber ist das alles richtig, was ich mache, und jetzt ist sie so aktiv, und da habe ich sehe halt da habe ich als Kompliment gemacht, man wird, wie das angenommen, hat sich gefreut, wenn man es als Schwester zu ihr sagt. Ja, ich im Lotto hier wird wahrscheinlich nicht so viele Komplimente, jetzt, das gibt nicht so viele Gelegenheiten dafür, aber wahrscheinlich habe ich wieder, irgendwie, meine Mutter, habe gesagt, dass sie gut macht sie sprechen während, und das war wahrscheinlich kann es als ein Kompliment ziehen meine Mutter lernt immer noch Sprachen, ja, ja, sie ist 60 Jahre alt, und sie lernt ja nicht gleich, das soll, dass dir das aufgefallen ist, und wo kommst du her? Ich komme aus Ägypten, aus Ägypten, und gibt es Unterschiede in der Komplimentkultur in Deutschland und Ägypten? Ja, das total unterschiedlich, aber dass der arabisch oder so die Hbv, ja, du bist gut, immer, hast du das Gefühl, dass man weniger Komplimente gibt in Deutschland? Ja, in Deutschland ist ja keine Komplimente, und vermisst du das, natürlich, das ist, was sind denn gute Komplimente, die man Fremden machen kann, oder kann man das überhaupt in Deutschland schwierig? Schwierig, also ich habe das auch schon erlebt, wenn ich mit dieser freundlich mit diesen freundlichen Gesicht unterwegs bin, dass man mir unterstellt, ich würde jemand aus das was, lassen, sie so hämisch, es ist wirklich erstes Grad, in Deutschland, glaube ich, ist es schwierig. Unabhängig von dieser Arbeit, haben sie auch in letzter Zeit, jemandem ein Kompliment gemacht? Mein Mann ständig. Sagen sie mal ein Beispiel, dass er sich sehr viel Mühe gibt beim Bauen, wir bauen gerade eine Kartoffel-Pyramide und ein Hochbeet auf dem Hof bei uns und unserer Vorsitzenden, dass sie das alles so toll organisiert und all den fleißigen Helfern, dass sie das mitmachen, also sie spare nicht nur, nein, nein, und seinen Enkelkindern, dass sie trotz allem durchhalten und sich toll aufs Abitur vorbereiten, und ja toll, meine ehemaligen Kollegen, dass sie tapfer sind, ich sehe schon, sie sind eine sehr positive, ja, muss man ja, aber sie auch, wenn sie so ein Job machen, sehen sie, jetzt haben sie auch einen klassischen Hunderte von toten Kindern, viel Spaß, auch bei ihnen, haben sie auch Komplimente bekommen? Ja, ich bin bereit, ich finde sie machen das sehr gut, die leute anlocken. Ich habe schon gesagt, da kommt ihr Zimmer da, wir machen, auf keinen Fall, mit habe ich so gedacht, aber sie haben uns super überredet, also Kompliment für ihre Überredungskünste. Dankeschön. Wenn ihr uns ein Kompliment machen möchtet, dann gibt es hier ein paar Optionen. Ihr könnt dieses Video liken, ihr könnt uns abonnieren und auf die Glocke drücken, ihr könnt einen Kommentar schreiben, und ihr könnt uns natürlich auf Patreon unterstützen als Mitglied, damit unterstützen wir unsere Arbeit, und ihr bekommt alle möglichen zusätzlichen Materialien zum Deutsch lernen von uns. Ich freue mich, dass es euch gibt, ihr seid toll, und bis bald. (Musik)\",\n    \"language\": \"de\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/predict",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predict Transcript Difficulty (fr)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transcript\": \"Salut ! Merci de me rejoindre pour cette nouvelle vidéo de\\nFrançais Authentique et aujourd'hui, on va parler, encore une fois prononciation. Tu l'as certainement remarqué, c'est la semaine\\nde la prononciation pour Français Authentique pour la bonne et simple raison que mon cours\\nde prononciation Prononciation authentique est enfin disponible. On en a parlé pas mal ces dernières semaines\\net le cours est disponible, il est en vente depuis lundi et il est au prix de lancement\\njusque dimanche. Il ne reste que quelques jours pour pouvoir\\nprofiter de ce cours au prix de lancement. Lundi, j'ai fait une vidéo dans laquelle\\nje t'ai donné ma méthode, ma technique en trois étapes pour améliorer ta prononciation. Et ce que je voulais faire aujourd'hui, parce\\nque je pense que c'est utile également, on se focalise souvent sur les choses à faire,\\nmais j'aime aussi me focaliser sur les choses à ne pas faire et c'est ce qu'on va faire\\ndans cette vidéo. On va regarder des choses qui me semblent\\npersonnellement non utiles pour améliorer sa prononciation. Avant de commencer, je vais quand même te\\ndire que dans cette vidéo, il n'y a pas de moquerie ou il n'y a pas d'arrogance de ma\\npart ; il n'y a pas de critique vis-à-vis de ceux qui utilisent ces méthodes. Je vais dire ce qui ne marche pas pour moi\\nparce que c'est des choses que j'ai testées, c'est des choses sur lesquelles j'ai un avis\\net c'est des choses dont j'ai beaucoup discuté avec les membres de Français Authentique\\nqui réussissent. Pour moi, c'est le critère. Si des membres réussissent, si des membres\\nparlent de façon fluide, sans stress et avec une bonne prononciation, je leur demande toujours\\n: « Comment as-tu fait ? » Et d'ailleurs, dans mon cours de prononciation, il y a un\\nmodule qui reprend des témoignages de membres qui ont réussi et qui nous ont dit comment\\nils font. Donc, ici, il n'y a pas de critique, je ne\\nveux pas critiquer ceux qui font les choses que je vais décrire comme étant un non-sens,\\ndes choses qui ne marchent pas, mais ça correspond à mon avis et je pense qu'il vaut mieux éviter\\nde suivre ces techniques sauf – c'est la seule condition, à mon avis – si tu fais\\nune de ces choses que je vais décrire et que tu juges ça comme étant positive, que\\nça marche pour toi. Si ça marche pour toi, continue de le faire. Si ça ne marche pas, si tu ne l'as pas testé,\\nn'essaye pas. La première chose que je te déconseille\\nde faire pour améliorer ta prononciation, c'est d'étudier la théorie, c'est d'étudier\\ndes schémas de la bouche, c'est d'étudier la position de la langue, c'est d'étudier\\nle chemin que prend l'air dans ta gorge ou dans ta bouche pour prononcer un certain son,\\nc'est d'étudier les cordes vocales et le fait qu'elles sont plus ou moins sollicitées\\npour prononcer un son, se focaliser sur toute la théorie. A mon sens, c'est trop complexe. C'est une science, mais c'est une science\\ndont on n'a pas besoin ou qu'on n'est pas obligé de maîtriser pour bien prononcer. Les francophones n'ont pas appris leur langue\\nmaternelle comme ça. On ne peut pas, c'est impossible (pour moi)\\nd'utiliser ces techniques quand on veut parler de façon fluide. Quand on est face à un francophone, on veut\\nparler, on veut prononcer correctement. Se souvenir que pour prononcer telle lettre\\nou tel son, il faut fermer les dents, mettre la langue d'un côté et faire passer l'air\\nici, on ne peut pas se concentrer là-dessus. Nous, on se concentre sur ce qu'on a à dire. Donc, si on veut apprendre à bien prononcer,\\nje ne pense pas qu'il soit utile d'apprendre la théorie, la position de la bouche, etc. Encore une fois, aucun francophone n'a appris\\nà parler le français ou à prononcer le français comme ça et je pense que dans ta\\nlangue maternelle, tu n'as pas appris comme ça. Moi, je me suis quand même documenté pour\\nla réalisation de mon cours Prononciation Authentique et j'ai appris des choses. On vous dit : « Pour prononcer tel son, il\\nfaut mettre la langue comme ça, etc. » Je ne le savais pas, pourtant, je prononce\\ntrès bien le français puisque c'est ma langue maternelle. Donc, la première chose à ne pas faire : perdre\\ndu temps à se focaliser sur la théorie, la position de langue, etc. J'ai fait cette erreur en anglais et ça ne\\nm'a absolument pas aidé. Deuxième chose que je déconseille de faire\\nqui, pourtant, est préconisés par certaines personnes, c'est de mettre un crayon dans\\nla bouche. Mettre un crayon dans la bouche, déjà, ce\\nn'est pas propre de faire ça, mais pourquoi faire ? Qu'est-ce qu'il y a de naturel là-dedans\\n? Qu'est-ce qu'il y a de naturel dans le fait de prononcer avec un crayon dans la bouche\\n? Quand on fait ça, moi c'est immédiatement ce qui vient comme sentiment, mon cerveau\\ntrouve ça bizarre puisque personne ne parle avec un crayon dans la bouche. Donc, si je commence à m'entraîner avec\\nun crayon dans la bouche, mon cerveau va se dire : « Mais, il y a quelque chose qui n'est\\npas claire là-dedans, il y a quelque chose qui n'est pas logique, qu'est-ce qui se passe\\n? » Donc, on va avoir du mal à se concentrer. C'est dur de se concentrer sur une bonne prononciation\\navec un crayon dans la bouche. Donc, pour moi, c'est inutile et encore une\\nfois, aucun natif n'a eu besoin de ça pour apprendre à parler sa langue maternelle ou\\npour apprendre à prononcer des sons de sa langue maternelle. Troisième chose que je vous déconseille\\nde faire quand vous souhaitez apprendre le français, ça rejoint un peu le point 1,\\nmais c'est un petit peu différent quand même : c'est de ne pas étudier la technique et\\nl'expertise. En effet, la phonétique (le fait de prononcer,\\nde faire des sons avec sa bouche), c'est une science, c'est une expertise et j'ai eu quelques\\ncritiques d'experts en phonétique qui disaient, suite à mes vidéos sur la prononciation\\n: « Ce n'est pas comme ça qu'on prononce... », ils me donnaient une langage très technique,\\nun langage d'expert pour m'expliquer comment il fallait apprendre à mes élèves à prononcer. Ces experts en phonétique, c'est bien, ils\\nont une science, ils étudient une science, ils ont vocation à nous aider à mieux comprendre,\\netc., c'est très bien, mais je ne pense pas que les experts en phonétique aient vraiment\\nla vocation d'aider les non francophones à prononcer, parce que la prononciation des\\nfrancophones et des non francophones est différente. Et la réalité du terrain, quand on apprend\\nune langue, ce n'est pas d'apprendre les systèmes phonétiques, ce n'est pas d'apprendre l'alphabet\\nphonétique international, à mon sens. En tant que francophone, je ne le connais\\npas, je ne connais pas l'alphabet phonétique international, ces symboles qu'on met entre\\ncrochets qui nous font dire : « OK, ça, ça correspond à un son. » et donc, chaque\\nson de la langue française a un symbole dans l'alphabet phonétique international. Moi, je ne le connais pas et je n'en ai pas\\nbesoin pour bien prononcer et je pense que c'est une perte de temps et d'énergie de\\nse concentrer là-dessus. Je pense qu'il vaut mieux, à mon avis, plutôt\\nque d'étudier la théorie (avec la position de la bouche, etc., de la langue, tout ce\\nqu'on veut) perdre du temps ou des ressources à mettre un crayon dans la bouche, perdre\\ndu temps ou des ressources à étudier la phonétique et toute l'expertise et la science\\nqu'il y a derrière, je pense qu'il vaut mieux se concentrer et prendre du temps pour se\\nfocaliser, focaliser son temps précieux – parce que ça prend du temps de pratiquer sa prononciation\\n– il vaut mieux focaliser ce temps sur des choses efficaces, sur des choses naturelles,\\nsur les choses dont j'ai parlé lundi. En trois étapes : n°1 : apprendre à gérer\\nses émotions, à se détendre, à se calmer avant de prononcer ; n°2 : beaucoup écouter\\net n°3 : beaucoup pratiquer, beaucoup travailler sur la répétition, sur le fait de prononcer\\nle français. Se concentrer sur ces trois choses, ça prend\\ndu temps, ça demande des efforts, donc, ne gaspillez pas vos efforts à essayer de faire\\ndes choses comme celles-là. Si tu veux suivre une méthode comme celle-là\\n– j'en ai parlé en début de vidéo – je sors un cours de prononciation : Prononciation\\nAuthentique. Et si tu n'es pas convaincu par ces trois\\nchoses dont je viens de parler, je te conseille vivement de jeter un petit coup d'œil à\\nce cours, il y a un lien en bas. C'est bâti sur ce modèle, sur la concentration,\\nsur une méthode naturelle, sur l'essentiel et ça boostera vraiment ton niveau de prononciation\\nen dix semaines. Je te conseille vraiment de jeter un petit\\ncoup d'œil, le lien est en bas. Il y a un prix de lancement jusque dimanche. Si tu préfères utiliser des méthodes comme\\ncelle que je viens de décrire, c'est OK ; dans ce cas, surtout n'achète pas mon cours Prononciation\\nAuthentique parce que lui, il est fait pour les gens qui ont envie d'apprendre à prononcer\\nd'une manière naturelle. Dans tous les cas, prix de lancement jusqu'à\\ndimanche, il y a un lien en bas. Je suis toujours aussi très content de voir\\nvos commentaires. Dites-moi ce que vous en dites en ce qui concerne\\nla prononciation et on se retrouve pour une nouvelle vidéo très bientôt. Salut !\",\n    \"language\": \"fr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/predict",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"predict"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Predict Transcript Difficulty (fr - Deployed)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://difficultymodel-fnbsdypmya-oa.a.run.app/model/api/predict/je mange une pomme en or",
+							"protocol": "https",
+							"host": [
+								"difficultymodel-fnbsdypmya-oa",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"model",
+								"api",
+								"predict",
+								"je mange une pomme en or"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SearchAndRecommendation Service",
+			"item": [
+				{
+					"name": "Autocomplete Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8084/autocomplete?query=Une intellige&videoLanguage=fr",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8084",
+							"path": [
+								"autocomplete"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Une intellige"
+								},
+								{
+									"key": "videoLanguage",
+									"value": "fr"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Video Keywords Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transcript\": \"C'est l'histoire d'une anomalie. Aujourd'hui, je vais vous emmener dans une discipline pas forcément la plus sexy, je vous préviens, mais où, il y a 20 ans, quasiment tous les scientifiques nous pensaient déjà arrivriver aux limites du possible. Puis dans laquelle, soudainement, sans que rien ne change vraiment, le record a explosé. Et au juste, cette année, il est déjà tombé trois fois. Et cette anomalie là, moi elle m'a intrigué. Attention, petit indice: cette anomalie est un homme et il a seulement 24 ans, vous l'avez. Sinon je peux aussi vous dire qu'il est americano, suéois, qu'il est la megégaastar de sa discipline, dont il a encore battu le record du monde au Jio de Paris- et là, il devrait plus y avoir trop de suspense- à leors JV. C'est lui, Armand di mondo duplantis. Et depuis sa naissance, il s'est mis en quête de réaliser le saut à la perche parfait, le saut qui irit flirter avec les limites de la physique et obligerait les experts à revoir leurs hypothèses. Et le plus fou, c'est qu'il est en passe d'y arriver. Depuis des décennies, des physiciens du monde entier se penchent avec passion sur ce combat perdu d'avance, celui d'un homme accompagné de sa perche contre l'attraction terrestre, celui d'un homme qui tente de s'élever dans le ciel pendant que la terre s'efforce de le retenir de toutes ses forces contre le sol. Au début du 20e siècle, le record de la discipline était proche des 4 m et il y a 10 ans, personne ne nous pensait capable de dépasser les 6,20, mais maintenant, nous en sommes déjà à 6,26 et l'espèce humaine semble donc avoir déjà trouvé son parfait gladiateur pour combattre dans ce duel perdu d'avance. Alors, oui, l'objectif n'est pas de gagner, mais simplement de faire honneur à notre espèce, et ce que je vous propose donc dans cette vidéo, c'est déjà de vous vous expliquer comment l'humanité en est arrivée là, juste pour vous donner les clés pour ensuite trouver ensemble à quelle hauteur Mondeo du Plantis devrait s'envoler pour réaliser le saut [Musique] parfait. Mais avant de partir à la recherche du saut parfait, sachez que j'ai pour vous déjà trouvé la banque parfaite. C'est before Bank, qui sponsorise cette vidéo. Before Bank, c'est la banque en ligne qui n'a pas oublié la relation humaine. En fait, vous avez tous les avantages de liberté d'une banque en ligne: ouverture de compte en 5 minutes, virement instantané gratuit, carte virtuelle- mais vous êtes en plus accompagné par des conseillers si vous en avez besoin, disponible 24h/ 24 et 7 jours sur 7 par téléphone pour répondre à toutes vos questions. Voici leurs deux offres principales. La première, c'est l'offre bfor basicque, la carte basique et efficace, avec les paiements gratuits en zone €, et la seconde, c'est l'offre bfor zen, à 4 € par mois, et là, vous profiterez des paiements par carte sans frais partout dans le monde, mais aussi d'une assurance pour vos voyages, si jamais vous vous blessez pendant votre prochain marathon à l'étranger, par exemple, et vous aurez aussi des plafonds de retrait élargi. Serz sur le gâteau, en ce moment, vous avez jusqu'à 230 € offert pour rejoindre beforefor Bank, donc, vous ne prenez pas beaucoup de risque. Par contre, dépêchez-vous, car l'offre est valable uniquement jusqu'au 12 novembre 2024. Je vous mets, comme d'habitude, un lien en description si l'offre vous tente: le petit QR code pour Atir directement sur leur page dédiée et, en quelques minutes, vous pourrez profiter de leur carte virtuelle pour faire vos premiers achats. Merci énormément à eux de soutenir la chaîne. Et nous, on repart à la quête du saut parfait. Bon, commençons ici pour schématiser si vous, vous ne connaissez rien à la discipline: réaliser le saut parfait, c'est réaliser une combinaison de plusieurs phases à la perfection. Bon, je sais que ça paraît assez limpide vu comme ça, mais je vous assure, le soit à la perche est beaucoup plus complexe que vous ne le pensez, et le moindre petit détail est important. Alors, on va commencer par la base. Bon, la première phase, c'est évidemment de courir vite, très vite. Vous comprendrez d'ailleurs petit à petit que c'est peut-être la phase la plus importante du saut si vous souhaitez battre le record du monde, sachant qu'en plus, vous devez porter une perche de 5 m qui pèse entre 2 et 5 kg, mais qui, en fait, en paraît le double, voire le triple, à cause de l'effet de levier, vu que vous devez la tenir par le bout. Mais bref, la piste d'élan fait environ 50 m, c'est suffisant pour atteindre sa vitesse Maxe. Et ça, c'est notre première étape. La deuxième phase demande ensuite un mélange de précision et de force: viser un butoir de seulement 15 cm de large pour y planter la perche, encaisser le choc, puis pousser fortement avec sa jambe d'impulsion pour décoller. Et c'est ensuite à partir de la troisème phase que l'agilité rentre en compte, car il faut se mettre à l'envers, à la verticale, le plus rapidement possible pour se retrouver parallèle à la perche. Ensuite, la 4rième phase est presque la plus facile. Si tenter que les premières ont bien été réalisées, c'est éviter la barre avec les pieds, l'enrouler en passant son centre de gravité au-dessus. Rentrez les bras et profitz. Un mélange de vitesse, de force, d'agilité et de technique qui font du sport l'un des plus complets et l'un des plus complexes au monde à appréhender. Et surtout, c'est un sport un peu magique et c'est pour ça qu'il passionne les physiciens du monde entier. Pour une raison très simple: c'est car il est intimement lié au concept d'énergie, un concept fondamental en science, qui nous permet de mieux comprendre le monde qui nous entoure. Car l'énergie, c'est un peu la force magique de notre univers. Sans énergie, il n'y aurait pas de vie. C'est elle qui nous permet de penser, de bouger, de courir. En fait, elle est partout autour de nous, même si on ne la voit pas. Et en soit la perche. L'énergie, c'est le nerf de la guerre, pour une raison simple: c'est que pour s'élever et vaincre la pesanteur, bah, vous avez besoin d'énergie. Donc, ce n'est qu'en zoomant sur ce concept qu'on pourra, ensemble, effleurer la limite humaine. En soit la perche. Ok, bon, je vais essayer de déchiffrer tout ça pour vous. Déjà, si vous vous en rappelez pas, je vous redonne: la propriété magique de l'énergie, c'est qu'elle peut être convertie d'une forme à l'autre sans pouvoir être ni créé ni perdu à partir de rien. Comprenez donc que l'énergie est partout autour de nous et il en va de notre talent de savoir l'utiliser efficacement. Par exemple, quand vous pédalez sur un vélo, vous transformez l'énergie chimique des aliments que vous avez manger en énergie cinétique nécessaire pour avancer. Bon, je grossil trai pour bien que vous compreniez, mais en fait, gardez juste en tête que l'énergie est partout, dans tout ce qu'on fait. Et du coup, quand un perchiste s'élance pour tenter de battre le record du monde, puis bloque sa perche contre le butoir, il transforme l'énergie cinétique accumulée lors de sa course d'élan en énergie potentielle élastique. En gros, en se pliant, la perche stock l'énergie du sauteur et vous le sentez peut-être maintenant venir. Lorsque la perche se déplie, elle libère ensuite toute l'énergie stockée, un peu comme un élastique, et cette énergie redevient donc petit à petit cinétique, jusqu'à propulser le perchiste vers le haut dans les airs, puis enfin dans les airs. Et à mesure que l'athlète atteint sa hauteur maximum, l'énergie cinétique se transforme en énergie potentielle gravitationnelle. En gros, plus on est haut et plus la force de gravité nous tire vers le bas. Bon, maintenant qu'on a vu ça, vous comprenez donc que pour réaliser le saut parfait, ben, il faut un transfert d'énergie parfait. En fait, rien ne se perd et tout doit se transformer efficacement. Il nous faut donc trouver une perche capable de stocker, de conserver et enfin de relâcher la totalité de l'énergie offerte à la base par la course d'lan. Et pour cela donc, l'homme s'est lancé à la quête de la perche parfaite. Et pour vous expliquer un petit peu son histoire, bon, assez rapidement, on va revenir juste un petit peu en arrière. Regardez ce graphe, c'est la progression du record du monde: des phases de forte accélération, puis tout d'un coup une stagnation, puis encore une accélération, et ainsi de suite. Et si on repart tout au début, en 1810, la perche n'avait bien évidemment rien de semblable à celle que nous avons aujourd'hui. Elle était faite de bois dur, elle était lourde, rigide et pour l'athlète du coup le soit, la perche, c'était essentiellement une épreuve de force brute où il fallait grimper sur la perche pour franchir la hauteur. Puis, au début des années 1900, la progression du record du monde est devenue plus lente et la question s'est alors très vite posée: pourquoi ne pas juste prendre un meilleur matériau, plus élastique, plus rebondissant, plus facile à manœuvrer? Et le bambou a donc fait son apparition, toujours du bois donc, mais plus léger, plus flexible, mais aussi plus risqué, car il avait plus de chance de se casser. Et après une phase d'amélioration des records, beaucoup plus lentes. Le progrès est reparti sur des bases exponentielles. Comme le bambou était plutôt facilement accessible, tous les athlètes ont rapidement fait la bascule et l'évolution a donc été acceptée. Mais le record ne reposait déjà plus vraiment sur la seule force ou la la seule technique du perchiste. Il fallait aussi la meilleure technologie, aussi primitive qu'elle puisse nous paraître aujourd'hui. En gros, pour gagner, il fallait une perche en bambou. Mais bref, si on revient à notre graphique, on remarque juste une grosse accélération juste après l'apparition des perches en bambou, jusqu'au saut à 4 m77 de cornelus warmerdam en 1940. Bon, on est encore loin des derniers soix. Plus de 6 m de duplantis. Mais à cette époque, la barre des 5 m est déjà mythique et elle devient donc pour la première fois accessible. Il ne manque plus que 23 cm. Mais les mois passent et plus rien. En fait, on arrive à un premier point de bascule dans l'histoire du sport. Pendant 17 ans, aucun record ne va tomber. En fait, avec la Seconde Guerre mondiale, la priorité n'est plus au sport et les Jos de 1940 et 44 sont annulés. Et puis, au niveau technologique, l'acier a remplacé le bambou, mais les résultats ne sont pas là. C'est trop lourd, pas assez flexible. Bon, l'Américain Bob gutowski arrive quand même à sauter 4 M78 en 1957, mais 1 cm de gagner en 17 ans, c'est et léger. Vous en conviendrez qu'on peut pas vraiment parler de révolution, ou en tout cas pas encore, car la Révolution, elle, va arriver juste après, quand toutes les planètes vont s'aligner pour offrir la perche, mais plus globalement, à tout l'athlétisme, une période dorée: guerre froide qui pousse à la performance, investissement financier, démocratisation du dopage et surtout nouvelle technologie: la fibre de verre. Et je sais que je commence à vous saouler un petit peu avec les matériaux des perches, mais rassurez-vous, c'est la dernière, c'est celle qu'utilise encore mononde du Plantis et elle est révolutionnaire, car c'est elle qui ouvre enfin fin la voix à notre saut à la perche. Parfait, car jusqu'à présent, la perche, c'était plutôt un sport de bourrin où la vitesse et la force Bru étaient les éléments déterminants. Mais du coup, tout va changer avec ce nouveau matériau composite inventé au début des années 30, la fibre de verre. C'est le meilleur des deux mondes, beaucoup plus élastique que l'acier et en même temps, beaucoup plus solide que le bambou. Du coup, la perche peut se plier, mais elle ne rompt pas et elle permet donc d'accumuler beaucoup plus d'énergie pour la renvoyer ensuite au perchistes. L'innovation est de rupture et elle est tout de suite présentée comme la solution technique à la stagnation du record. Elle est d'ailleurs très rapidement autorisée et alors que notre courbe du record du monde patiné, elle reprend enfin un peu de hauteur. On avait attendu 17 ans pour 1 cm, puis, tout d'un coup, on gagne 40 cm en 3 ans, sauf que là, vous imaginez bien, ça fait grincer des dents. La nature de la discipline change radicalement et l'équipement a beaucoup plus d'impact que le talent brut des athlètes. Les précédents recordman du monde sont invisibilisés et leurs performances sont ridiculisé. Et en concours, ceux qui arrivent à se procurer des perches en fibre de verre sont clairement avantagés. Bon, ça fait scandale, quoi. Et la question qui se pose, c'est: est-ce qu'All est toujours plus haut grâce à la technologie? C'est forcément toujours mieux, mais bref, au final, la technologie est acceptée, ça y est définitivement. La boîte de Pandore est ouverte. Si, dans le futur, les records du monde patinent et que l'homme semble arriver au bout de ses capacités, alors, tout le monde le sait, la technologie peut venir à son secours. Nous sommes dans les années 80 et les records tombent les uns après les autres. L'ascension est folle et la limite semble encore loin maintenant. La barre des cimètres semblait inatteignable 20 ans plus tôt. Mais quand Sergey bouka, jeune athlète soviétique de 20 ans, devient le premier homme à passer 5 M85, puis 5 M90, en l'espace de 2 mois, tout le monde comprend très vite qu'il a de fortes chances pour qu'il soit l'élu. [Applaudissements]. [Applaudissements] pour vous le présenter très rapidement déjà, il est doté d'un physique hors norme, une vitesse exceptionnelle mesurée à plus de 10 m par seconde, et une force surnaturelle qui lui permet de sauter aussi loin que les sauteurs et de lancer aussi loin que les lanceurs. Puis, une fois en l'air, son passés de gymnaste lui permet de gérer les mouvements de son corps à la perfection. L'autre candidat au symètre, c'est le français qui, BKA, avait pris le record en 1984, il devient médaille de bronze au j de. Puis, à Rome, quelques semaines après sa médaille, il réalisera un exploit: 5 M91 au dernier. [Applaudissements]. ESS AC effle la bar, mais j ne tombe, sauf que 3 minutes plus tard. Bah, c'était au tour de BKA, de ses lanceurs. Record was know yearsank 30 in world. And then came wi the championship. Hels is going for world. [Applaudissements]. Au final, vigneron ne parviendra jamais à aller plus haut. Terrassé par le soviétique, puis, seul au monde, bbka commencera alors à battre ses records, centimètres après centimètres, à chaque compétition ou presque. Et seulement un an plus tard, le 13 juillet 1985, la barre explose enfin. Après 35 records du monde, il atteindra au final 6 m 14. En 1994, c'était l'athlète parfait, celui qui aura parfaitement tiré parti des nouvelles perches au retour d'énergie toujours plus is. Mais il n'aura pas réalisé le saut parfait, du moins pas en compétition, car d'après son mentor, Vitalie Petrov, il aurait réussi à passer 6 M25 à l'entraînement, mais sans jamais le tenter en concours. Il aura donc mis la barre hors d'atteinte de 99 % des athlètes, mais tout en prouvant qu'il était encore possible d'aller un peu plus haut. Sauf que les années passent et le record stagne. En 20 ans, seul Steve wooker parvient à dépasser les 6, 05, 6 M06 en 2009, la fibre de verre est de meilleure qualité, elle est d'ailleurs souvent mélangée à de la fibre de carbone. Mais ce n'est n pas révolutionnaire. Et sans nouvelle innovation, beaucoup d'athlètes, coach et scientifiques sont persuadés que la limite est toute proche. D'ailleurs, une étude parue en 2008 sur les limites des records dans les disciplines olympiques calcule le record maximal atteignable à 6 m154 et évalue à moins de 0,5 % de chance la probabilité qu'il dépasse 6 M19. Puis, en 2014, un français de 27 ans vient bousculer la légende. Nous sommes à Donetsk, en Ukraine, sur les terres justement de Sergey bbka, lui-même présent sur les lieux, 20 ans après son dernier record, et Renault lavilini demande aux officiels de la compétition de poser la barre à 6 m 16: allez, la course des de renaini, le sprint, la vitesse du champion olympique français à 6 m 16, pourquoi pas? Ohour du monde, record du monde, Renault la V et le nouveau recordman du monde du S à la perche 6 m 16, Sergy bouka, est debout, l'ovation hystérique, les mains sur la tête, sur les terres du tsar, sur les terres du Grand Sergey bouka, sous les yeux de Sergey bouka, le nouveau recordman du monde, estat français. Il a 27 ans, il est champion olympique, mais surtout, maintenant, il vient de s'envoler une barre à 6 m 16 avec de la marge, avec de la marge très nettement, même pas, il touche même pas cette barre à 6 m 16, c'est un tremblement de terre en Ukraine, en France, dans le monde de l'athelé, mais pendant cette histoire, ça change pas grand-chose. Au final, le record été battu que de 2 cm en fait, avec un style nouveau, moins explosif et puissant, mais plus technique et précis. La villénie a sûrement réussi à optimiser au maximum, ce qui pouvait encore l'être d'ailleurs. Il ne repassera au-dessus des 6,5 qu'une seule fois lors du reste de sa carrière. Puis, 4 ans plus tard, un frisson s'empare du monde de l'athlétisme. Nous sommes maintenant au stade olympique de Berlin. Mondeo du Plantis à 18 ans et participe pour la première fois au championnat d'Europe. C'est simple, c'est le concours le plus relevé de l'histoire. Dulantis, la vilini et le russe de 21 ans, Timour morgunov, sont encore en course pour l'or, après avoir tous les trois passé une barre à 5 [Applaudissements]. M95 pour du plan. L'objectif est déjà rempli: il montera pour la première fois de sa carrière sur le podium d'une compétition internationale majeure avec un record personnel en prime battu de 5 cm. Mais ce soirl, il voulait déjà plus [Applaudissements] et finira par l'emporter en passant 6 M05, un record personnel battu de 15 cm, une folie. La vilini terminera 3è et morgunov finira, lui, second en passant les 6 m: un coup d'éclart en mondoision, qui restera à jamais la meilleure performance de sa courte carrière. Mais pour du planti, c'était simplement le commencement, la naissance d'une légende. Et 2 ans plus tard, le 8 février 2020 à taouroun, en Pologne, le monde entier assiste à un premier tremblement de [Applaudissements] terre. Ça y est, le record est tombé. On reste tout juste dans les prévisions des scientifiques, mais l'exploit est effrayant. Du Plantis à seulement 20 ans, il a de la marge et en plus, le saut n'est pas parfait. Il reste pas mal d'espace avant et au-dessus de la barre. Bon, beaucoup moins derrière, on va pas se le cacher, mais tout le monde en est convaincu. Il peut aller bien plus haut et il faudra pas attendre longtemps puisque la semaine suivante, à glasgo, duplantis va réitérer [Applaudissements] l'exploit. Cette fois, la barre ne bouge même pas et en 2 semaines, le monde de l'athlétisme aura droit a un aperçu de tous les futurs concours auquels mondo participera. Une première partie pour simplement s'assurer de la victoire, le plus souvent sans aucune difficulté, puis une lutte contre son propre record du monde. Comme bobka, duup planantiste, décide d'avancer centimètres par centimètre, bien sûr, pour les primes offertes par ses sponsors et les organisateurs de meeting à chaque record, entre 30000 et 100000 €, mais surtout comme bbka, pour contrôler sa carrière et sa propre progression, pour toujours avoir un objectif atteignable à court terme, histoire de maintenir la flamme, pour toujours donner le sentiment de pouvoir aller plus haut et aussi pour ne pas être invisibilisé dans un concours qu'il surdomine de toute façon. Car depuis que monondo est arrivé, le concours du soit à la perche n'offrirait plus aucun suspense sans la quête d'un énième record. Puis, c'est à Belgrade, en 2 202, que duplantis parvient à battre les 6- [Applaudissements] m2, et ça y est. Les prévision de notre étude deviennent définitivement obsolète et tout le monde n alors plus qu'une question en tête: quelle est la vraie limite de dupantis? Quelle est la vraie limite de l'homme en soit la perche? Mais pour répondre à ces questions, il faut déjà essayer de comprendre pourquoi lui arrive à faire ce que les autres n'envisagent même pas déjà. Physiquement, mondo se rapproche plus de bbka que de la villénie. Avec son MRE 81 et ses 79 kg, il est très rapide, plus que bbka, et à peine moins puissant que lui. Un rapport poids puissance fou qui lui offre une force de pénétration exceptionnelle et lui permet de plier des perches bien plus dur que tous ses concurrents, des perches qui, une fois replié, lui offriront un effet catapulte sans égal et niveau technique. Par contre, le Suédois n'a rien n envie à la villénie. En fait, il donne l'impression d'anticiper à la perfection toutes les phases du saut. Sa pose de perche est précise et ses sensations dans l'espace sont inné, travaillé depuis son enfance dans le sauttoir de son jardin, en plus, en concours. Sa régularité est impressionnante. Il semble pouvoir corriger ses micro défauts d'un saut à l'autre, en fait du Plantis. C'est le combo parfait entre bbka et la vilennie. Ces saut sont fluides, techniques, gracieux. C'est violent et doux à la fois, une sorte de magie. DUP planantis a déjà amélioré le record du monde 10 fois au moment où je vous parle, et il n'a que 24 ans. Et depuis 100 ans, les plus grands perchistes de l'histoire ont atteint leur apogé autour de la trentaine. Chaque année, il devient plus puissant et encore plus maître de son art, et il est fort probable donc qu'il soit encore meilleur dans 4 ans. Alors, forcément, il devra fournir un travail monstre pour aller là où personne ne s'est encore aventuré. Mais c'est aussi pour ça qu'il monte centimètres après centimètres pour avoir cette carotte constamment en ligne de mire. En février, monondo déclaré à la BBC vouloir passer 6 m3. Pas car ce serait sa limite. Non, non, juste parce que ça sonne cool. Son père, Greg, pense- lui qu'il peut atteindre les 6 M40, 20 de plus que la limite scientifique de notre étude? Et au final, seul sa mère tente de calmer le jeu en évoquant plutôt la nécessité de repenser les tapis de réception afin d'amortir correctement des chutes qui deviennent de plus en plus vertigineuse. Mais alors, jusquoù est la vraie limite? Ça y est, on y arrive. Ce que je vous propose donc, c'est d'essayer de nous-même la calculer. Déjà, pour les petits malins au fond de la classe, je vais préciser qu'on parle là d'un SAU déroulant sur la planète Terre, là où la gravité se mesure à 9,81 m par seconde carré. Vous verrez, c'est important. Et pour le reste, vous allez voir, c'est très simple. Je vous ai de toute façon déjà expliqué l'essentiel quand je vous ai décrit comment était transféré l'énergie en saut à la perche, et vous l'avez maintenant compris. Les nouvelles perches en matériaux composite permettent d'absorber, de conserver et de restituer quasiment l'intégralité de l'énergie de l'athlète. Alors maintenant, place au calcul. On suppose donc que l'énergie cinétique de la course d'élan est restitué à 100 % dans la perche. Du coup, on peut noter que l'énergie cinétique 1/2i de mv² est égale à MG, h, la formule de l'énergie, potentiel gravitationnel- où g désigne l'accélération de la pesanteur et M la masse du perchiste. En résolvant l'équation, ça fait donc h. La hauteur qu'on cherche est égale à v² sur 2G et vous comprenez là que la vitesse est donc l'élément déterminant. Pour du planti, elle a été mesurée à 10,3 m parse. Et rappelez-vous, nous avions noté g, la mesure de la gravité, à 9,81 m par seconde carré, ce qui nous donne notre hauteur h à 5,41 m. Bon, vous voyez que on n est pas vraiment là et vous avez peut-être déjà compris là où ça cloche. En fait, c'est 5 M41, ce serait la hauteur théorique Maxim à laquelle du plantiste pourrait placer l'entièreté de son corps au-dessus de la perche. Mais en réalité, si vous regardez les sauts, il en a pas vraiment besoin car grâce à son agilité- et on le voit sur les sauts- il a en fait juste besoin de placer son centre de gravité au-dessus de la barre, comme en saut en hauteur. Et vu que le centre de gravité de dupleantis a été mesuré à 1 M1, 5, 1,41 + 1 M1, ça nous fait 6,54. Bon, c'est un chiffre fou, mais un chiffre qui se rapproche également de celui d'une étud mené par le Comité olympique suédois pour évaluer les capacités de l'athlète. Ils avaient compilé tous ses résultats et d'autres données liées à chaque saut- altitude, météo- pour trouver, avec l'aide de l'intelligence artificielle, 6,51 m. Ces chiffres nous amèneraient dans une zone encore inconnue, une zone où personne ne pensait l'homme capable d'aller. Alors, forcément, il faut un peu relativiser ce chiffre. Déjà, les calculs sont un peu grossiers, même s'il donneent une très bonne approximation, mais surtout, car c'est le chiffre d'un saut parfait, un chiffre qui suggère une vitesse digne de d'un sprinter, une agilité d'un gymnaste et, surtout, l'utilisation d'une perche parfaite de par sa composition, qui restitue parfaitement l'énergie. En tout cas, ce chiffre, cette hauteur, ça représenterait le saut hypothétiquement parfait de mon dos. C'est donc un saut réalisable et d'ailleurs, du planti n'en est déjà pas passer si loin. Regardez, c'était à ClermontFerrand, le 25 février 2023. Ce jour-là, duuplantis passait une barre à 6,22, son 6e record du monde. Clermont est en ébullition. Arre du plantiste qui s'élève et ça pass. Et au ralenti, on voit que le saut se rapproche tellement de la perfection que Johann cassiram, docteur en sciences des Sports à l'université de franchecé et chercheur spécialisé en soit la perche, décida de l'analyser. Il en conclut: un bassin à 6 M50 et des pieds à 6 M40, sans toucher. Il y a 100 ans, la barre des 5 m semblait inatteignable. Il y a 50 ans, celle des 6 m paraissait intouchable. Et il y a 15 ans, l'homme a décidé de fixer sa limite proche des 6 m 15, sauf qu'aujourd'hui nous savons déjà qu'elle se situe au minimum à 6 M40 et que du blantis pourrait théoriquement se rapprocher des 6 M50. Alors, oui, c'est vrai, en soit la perche, nous nous rapprochons de notre limite, c'est indéniable, mais l'homme semble sans arrêt s'obstiner à la repousser. Alors, est-ce que cette quête de record est essentiel au sport? Ça, c'est un autre débat. Mais ce qui est sûr, c'est que nous avons, depuis 200 ans, choisi de ne presque jamais dire non au progrès, tout en nous fixant paradoxalement, systématiquement, des limites. Alors, dans 10 ans, lorsque duplanti sera allé au bout de sa quête, on essaiera sûrement de nous convaincre qu'il ne sera jamais plus possible d'aller aussi haut, et à ce moment-là, chacun sera alors libre d'y croire. [Musique].\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8081/get-video-keywords",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8081",
+							"path": [
+								"get-video-keywords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search video Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\" : \"Basketball\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8084/vector-search",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8084",
+							"path": [
+								"vector-search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Video Embeddings Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transcript\": \"C'est l'histoire d'une anomalie. Aujourd'hui, je vais vous emmener dans une discipline pas forcément la plus sexy, je vous préviens, mais où, il y a 20 ans, quasiment tous les scientifiques nous pensaient déjà arrivriver aux limites du possible. Puis dans laquelle, soudainement, sans que rien ne change vraiment, le record a explosé. Et au juste, cette année, il est déjà tombé trois fois. Et cette anomalie là, moi elle m'a intrigué. Attention, petit indice: cette anomalie est un homme et il a seulement 24 ans, vous l'avez. Sinon je peux aussi vous dire qu'il est americano, suéois, qu'il est la megégaastar de sa discipline, dont il a encore battu le record du monde au Jio de Paris- et là, il devrait plus y avoir trop de suspense- à leors JV. C'est lui, Armand di mondo duplantis. Et depuis sa naissance, il s'est mis en quête de réaliser le saut à la perche parfait, le saut qui irit flirter avec les limites de la physique et obligerait les experts à revoir leurs hypothèses. Et le plus fou, c'est qu'il est en passe d'y arriver. Depuis des décennies, des physiciens du monde entier se penchent avec passion sur ce combat perdu d'avance, celui d'un homme accompagné de sa perche contre l'attraction terrestre, celui d'un homme qui tente de s'élever dans le ciel pendant que la terre s'efforce de le retenir de toutes ses forces contre le sol. Au début du 20e siècle, le record de la discipline était proche des 4 m et il y a 10 ans, personne ne nous pensait capable de dépasser les 6,20, mais maintenant, nous en sommes déjà à 6,26 et l'espèce humaine semble donc avoir déjà trouvé son parfait gladiateur pour combattre dans ce duel perdu d'avance. Alors, oui, l'objectif n'est pas de gagner, mais simplement de faire honneur à notre espèce, et ce que je vous propose donc dans cette vidéo, c'est déjà de vous vous expliquer comment l'humanité en est arrivée là, juste pour vous donner les clés pour ensuite trouver ensemble à quelle hauteur Mondeo du Plantis devrait s'envoler pour réaliser le saut [Musique] parfait. Mais avant de partir à la recherche du saut parfait, sachez que j'ai pour vous déjà trouvé la banque parfaite. C'est before Bank, qui sponsorise cette vidéo. Before Bank, c'est la banque en ligne qui n'a pas oublié la relation humaine. En fait, vous avez tous les avantages de liberté d'une banque en ligne: ouverture de compte en 5 minutes, virement instantané gratuit, carte virtuelle- mais vous êtes en plus accompagné par des conseillers si vous en avez besoin, disponible 24h/ 24 et 7 jours sur 7 par téléphone pour répondre à toutes vos questions. Voici leurs deux offres principales. La première, c'est l'offre bfor basicque, la carte basique et efficace, avec les paiements gratuits en zone €, et la seconde, c'est l'offre bfor zen, à 4 € par mois, et là, vous profiterez des paiements par carte sans frais partout dans le monde, mais aussi d'une assurance pour vos voyages, si jamais vous vous blessez pendant votre prochain marathon à l'étranger, par exemple, et vous aurez aussi des plafonds de retrait élargi. Serz sur le gâteau, en ce moment, vous avez jusqu'à 230 € offert pour rejoindre beforefor Bank, donc, vous ne prenez pas beaucoup de risque. Par contre, dépêchez-vous, car l'offre est valable uniquement jusqu'au 12 novembre 2024. Je vous mets, comme d'habitude, un lien en description si l'offre vous tente: le petit QR code pour Atir directement sur leur page dédiée et, en quelques minutes, vous pourrez profiter de leur carte virtuelle pour faire vos premiers achats. Merci énormément à eux de soutenir la chaîne. Et nous, on repart à la quête du saut parfait. Bon, commençons ici pour schématiser si vous, vous ne connaissez rien à la discipline: réaliser le saut parfait, c'est réaliser une combinaison de plusieurs phases à la perfection. Bon, je sais que ça paraît assez limpide vu comme ça, mais je vous assure, le soit à la perche est beaucoup plus complexe que vous ne le pensez, et le moindre petit détail est important. Alors, on va commencer par la base. Bon, la première phase, c'est évidemment de courir vite, très vite. Vous comprendrez d'ailleurs petit à petit que c'est peut-être la phase la plus importante du saut si vous souhaitez battre le record du monde, sachant qu'en plus, vous devez porter une perche de 5 m qui pèse entre 2 et 5 kg, mais qui, en fait, en paraît le double, voire le triple, à cause de l'effet de levier, vu que vous devez la tenir par le bout. Mais bref, la piste d'élan fait environ 50 m, c'est suffisant pour atteindre sa vitesse Maxe. Et ça, c'est notre première étape. La deuxième phase demande ensuite un mélange de précision et de force: viser un butoir de seulement 15 cm de large pour y planter la perche, encaisser le choc, puis pousser fortement avec sa jambe d'impulsion pour décoller. Et c'est ensuite à partir de la troisème phase que l'agilité rentre en compte, car il faut se mettre à l'envers, à la verticale, le plus rapidement possible pour se retrouver parallèle à la perche. Ensuite, la 4rième phase est presque la plus facile. Si tenter que les premières ont bien été réalisées, c'est éviter la barre avec les pieds, l'enrouler en passant son centre de gravité au-dessus. Rentrez les bras et profitz. Un mélange de vitesse, de force, d'agilité et de technique qui font du sport l'un des plus complets et l'un des plus complexes au monde à appréhender. Et surtout, c'est un sport un peu magique et c'est pour ça qu'il passionne les physiciens du monde entier. Pour une raison très simple: c'est car il est intimement lié au concept d'énergie, un concept fondamental en science, qui nous permet de mieux comprendre le monde qui nous entoure. Car l'énergie, c'est un peu la force magique de notre univers. Sans énergie, il n'y aurait pas de vie. C'est elle qui nous permet de penser, de bouger, de courir. En fait, elle est partout autour de nous, même si on ne la voit pas. Et en soit la perche. L'énergie, c'est le nerf de la guerre, pour une raison simple: c'est que pour s'élever et vaincre la pesanteur, bah, vous avez besoin d'énergie. Donc, ce n'est qu'en zoomant sur ce concept qu'on pourra, ensemble, effleurer la limite humaine. En soit la perche. Ok, bon, je vais essayer de déchiffrer tout ça pour vous. Déjà, si vous vous en rappelez pas, je vous redonne: la propriété magique de l'énergie, c'est qu'elle peut être convertie d'une forme à l'autre sans pouvoir être ni créé ni perdu à partir de rien. Comprenez donc que l'énergie est partout autour de nous et il en va de notre talent de savoir l'utiliser efficacement. Par exemple, quand vous pédalez sur un vélo, vous transformez l'énergie chimique des aliments que vous avez manger en énergie cinétique nécessaire pour avancer. Bon, je grossil trai pour bien que vous compreniez, mais en fait, gardez juste en tête que l'énergie est partout, dans tout ce qu'on fait. Et du coup, quand un perchiste s'élance pour tenter de battre le record du monde, puis bloque sa perche contre le butoir, il transforme l'énergie cinétique accumulée lors de sa course d'élan en énergie potentielle élastique. En gros, en se pliant, la perche stock l'énergie du sauteur et vous le sentez peut-être maintenant venir. Lorsque la perche se déplie, elle libère ensuite toute l'énergie stockée, un peu comme un élastique, et cette énergie redevient donc petit à petit cinétique, jusqu'à propulser le perchiste vers le haut dans les airs, puis enfin dans les airs. Et à mesure que l'athlète atteint sa hauteur maximum, l'énergie cinétique se transforme en énergie potentielle gravitationnelle. En gros, plus on est haut et plus la force de gravité nous tire vers le bas. Bon, maintenant qu'on a vu ça, vous comprenez donc que pour réaliser le saut parfait, ben, il faut un transfert d'énergie parfait. En fait, rien ne se perd et tout doit se transformer efficacement. Il nous faut donc trouver une perche capable de stocker, de conserver et enfin de relâcher la totalité de l'énergie offerte à la base par la course d'lan. Et pour cela donc, l'homme s'est lancé à la quête de la perche parfaite. Et pour vous expliquer un petit peu son histoire, bon, assez rapidement, on va revenir juste un petit peu en arrière. Regardez ce graphe, c'est la progression du record du monde: des phases de forte accélération, puis tout d'un coup une stagnation, puis encore une accélération, et ainsi de suite. Et si on repart tout au début, en 1810, la perche n'avait bien évidemment rien de semblable à celle que nous avons aujourd'hui. Elle était faite de bois dur, elle était lourde, rigide et pour l'athlète du coup le soit, la perche, c'était essentiellement une épreuve de force brute où il fallait grimper sur la perche pour franchir la hauteur. Puis, au début des années 1900, la progression du record du monde est devenue plus lente et la question s'est alors très vite posée: pourquoi ne pas juste prendre un meilleur matériau, plus élastique, plus rebondissant, plus facile à manœuvrer? Et le bambou a donc fait son apparition, toujours du bois donc, mais plus léger, plus flexible, mais aussi plus risqué, car il avait plus de chance de se casser. Et après une phase d'amélioration des records, beaucoup plus lentes. Le progrès est reparti sur des bases exponentielles. Comme le bambou était plutôt facilement accessible, tous les athlètes ont rapidement fait la bascule et l'évolution a donc été acceptée. Mais le record ne reposait déjà plus vraiment sur la seule force ou la la seule technique du perchiste. Il fallait aussi la meilleure technologie, aussi primitive qu'elle puisse nous paraître aujourd'hui. En gros, pour gagner, il fallait une perche en bambou. Mais bref, si on revient à notre graphique, on remarque juste une grosse accélération juste après l'apparition des perches en bambou, jusqu'au saut à 4 m77 de cornelus warmerdam en 1940. Bon, on est encore loin des derniers soix. Plus de 6 m de duplantis. Mais à cette époque, la barre des 5 m est déjà mythique et elle devient donc pour la première fois accessible. Il ne manque plus que 23 cm. Mais les mois passent et plus rien. En fait, on arrive à un premier point de bascule dans l'histoire du sport. Pendant 17 ans, aucun record ne va tomber. En fait, avec la Seconde Guerre mondiale, la priorité n'est plus au sport et les Jos de 1940 et 44 sont annulés. Et puis, au niveau technologique, l'acier a remplacé le bambou, mais les résultats ne sont pas là. C'est trop lourd, pas assez flexible. Bon, l'Américain Bob gutowski arrive quand même à sauter 4 M78 en 1957, mais 1 cm de gagner en 17 ans, c'est et léger. Vous en conviendrez qu'on peut pas vraiment parler de révolution, ou en tout cas pas encore, car la Révolution, elle, va arriver juste après, quand toutes les planètes vont s'aligner pour offrir la perche, mais plus globalement, à tout l'athlétisme, une période dorée: guerre froide qui pousse à la performance, investissement financier, démocratisation du dopage et surtout nouvelle technologie: la fibre de verre. Et je sais que je commence à vous saouler un petit peu avec les matériaux des perches, mais rassurez-vous, c'est la dernière, c'est celle qu'utilise encore mononde du Plantis et elle est révolutionnaire, car c'est elle qui ouvre enfin fin la voix à notre saut à la perche. Parfait, car jusqu'à présent, la perche, c'était plutôt un sport de bourrin où la vitesse et la force Bru étaient les éléments déterminants. Mais du coup, tout va changer avec ce nouveau matériau composite inventé au début des années 30, la fibre de verre. C'est le meilleur des deux mondes, beaucoup plus élastique que l'acier et en même temps, beaucoup plus solide que le bambou. Du coup, la perche peut se plier, mais elle ne rompt pas et elle permet donc d'accumuler beaucoup plus d'énergie pour la renvoyer ensuite au perchistes. L'innovation est de rupture et elle est tout de suite présentée comme la solution technique à la stagnation du record. Elle est d'ailleurs très rapidement autorisée et alors que notre courbe du record du monde patiné, elle reprend enfin un peu de hauteur. On avait attendu 17 ans pour 1 cm, puis, tout d'un coup, on gagne 40 cm en 3 ans, sauf que là, vous imaginez bien, ça fait grincer des dents. La nature de la discipline change radicalement et l'équipement a beaucoup plus d'impact que le talent brut des athlètes. Les précédents recordman du monde sont invisibilisés et leurs performances sont ridiculisé. Et en concours, ceux qui arrivent à se procurer des perches en fibre de verre sont clairement avantagés. Bon, ça fait scandale, quoi. Et la question qui se pose, c'est: est-ce qu'All est toujours plus haut grâce à la technologie? C'est forcément toujours mieux, mais bref, au final, la technologie est acceptée, ça y est définitivement. La boîte de Pandore est ouverte. Si, dans le futur, les records du monde patinent et que l'homme semble arriver au bout de ses capacités, alors, tout le monde le sait, la technologie peut venir à son secours. Nous sommes dans les années 80 et les records tombent les uns après les autres. L'ascension est folle et la limite semble encore loin maintenant. La barre des cimètres semblait inatteignable 20 ans plus tôt. Mais quand Sergey bouka, jeune athlète soviétique de 20 ans, devient le premier homme à passer 5 M85, puis 5 M90, en l'espace de 2 mois, tout le monde comprend très vite qu'il a de fortes chances pour qu'il soit l'élu. [Applaudissements]. [Applaudissements] pour vous le présenter très rapidement déjà, il est doté d'un physique hors norme, une vitesse exceptionnelle mesurée à plus de 10 m par seconde, et une force surnaturelle qui lui permet de sauter aussi loin que les sauteurs et de lancer aussi loin que les lanceurs. Puis, une fois en l'air, son passés de gymnaste lui permet de gérer les mouvements de son corps à la perfection. L'autre candidat au symètre, c'est le français qui, BKA, avait pris le record en 1984, il devient médaille de bronze au j de. Puis, à Rome, quelques semaines après sa médaille, il réalisera un exploit: 5 M91 au dernier. [Applaudissements]. ESS AC effle la bar, mais j ne tombe, sauf que 3 minutes plus tard. Bah, c'était au tour de BKA, de ses lanceurs. Record was know yearsank 30 in world. And then came wi the championship. Hels is going for world. [Applaudissements]. Au final, vigneron ne parviendra jamais à aller plus haut. Terrassé par le soviétique, puis, seul au monde, bbka commencera alors à battre ses records, centimètres après centimètres, à chaque compétition ou presque. Et seulement un an plus tard, le 13 juillet 1985, la barre explose enfin. Après 35 records du monde, il atteindra au final 6 m 14. En 1994, c'était l'athlète parfait, celui qui aura parfaitement tiré parti des nouvelles perches au retour d'énergie toujours plus is. Mais il n'aura pas réalisé le saut parfait, du moins pas en compétition, car d'après son mentor, Vitalie Petrov, il aurait réussi à passer 6 M25 à l'entraînement, mais sans jamais le tenter en concours. Il aura donc mis la barre hors d'atteinte de 99 % des athlètes, mais tout en prouvant qu'il était encore possible d'aller un peu plus haut. Sauf que les années passent et le record stagne. En 20 ans, seul Steve wooker parvient à dépasser les 6, 05, 6 M06 en 2009, la fibre de verre est de meilleure qualité, elle est d'ailleurs souvent mélangée à de la fibre de carbone. Mais ce n'est n pas révolutionnaire. Et sans nouvelle innovation, beaucoup d'athlètes, coach et scientifiques sont persuadés que la limite est toute proche. D'ailleurs, une étude parue en 2008 sur les limites des records dans les disciplines olympiques calcule le record maximal atteignable à 6 m154 et évalue à moins de 0,5 % de chance la probabilité qu'il dépasse 6 M19. Puis, en 2014, un français de 27 ans vient bousculer la légende. Nous sommes à Donetsk, en Ukraine, sur les terres justement de Sergey bbka, lui-même présent sur les lieux, 20 ans après son dernier record, et Renault lavilini demande aux officiels de la compétition de poser la barre à 6 m 16: allez, la course des de renaini, le sprint, la vitesse du champion olympique français à 6 m 16, pourquoi pas? Ohour du monde, record du monde, Renault la V et le nouveau recordman du monde du S à la perche 6 m 16, Sergy bouka, est debout, l'ovation hystérique, les mains sur la tête, sur les terres du tsar, sur les terres du Grand Sergey bouka, sous les yeux de Sergey bouka, le nouveau recordman du monde, estat français. Il a 27 ans, il est champion olympique, mais surtout, maintenant, il vient de s'envoler une barre à 6 m 16 avec de la marge, avec de la marge très nettement, même pas, il touche même pas cette barre à 6 m 16, c'est un tremblement de terre en Ukraine, en France, dans le monde de l'athelé, mais pendant cette histoire, ça change pas grand-chose. Au final, le record été battu que de 2 cm en fait, avec un style nouveau, moins explosif et puissant, mais plus technique et précis. La villénie a sûrement réussi à optimiser au maximum, ce qui pouvait encore l'être d'ailleurs. Il ne repassera au-dessus des 6,5 qu'une seule fois lors du reste de sa carrière. Puis, 4 ans plus tard, un frisson s'empare du monde de l'athlétisme. Nous sommes maintenant au stade olympique de Berlin. Mondeo du Plantis à 18 ans et participe pour la première fois au championnat d'Europe. C'est simple, c'est le concours le plus relevé de l'histoire. Dulantis, la vilini et le russe de 21 ans, Timour morgunov, sont encore en course pour l'or, après avoir tous les trois passé une barre à 5 [Applaudissements]. M95 pour du plan. L'objectif est déjà rempli: il montera pour la première fois de sa carrière sur le podium d'une compétition internationale majeure avec un record personnel en prime battu de 5 cm. Mais ce soirl, il voulait déjà plus [Applaudissements] et finira par l'emporter en passant 6 M05, un record personnel battu de 15 cm, une folie. La vilini terminera 3è et morgunov finira, lui, second en passant les 6 m: un coup d'éclart en mondoision, qui restera à jamais la meilleure performance de sa courte carrière. Mais pour du planti, c'était simplement le commencement, la naissance d'une légende. Et 2 ans plus tard, le 8 février 2020 à taouroun, en Pologne, le monde entier assiste à un premier tremblement de [Applaudissements] terre. Ça y est, le record est tombé. On reste tout juste dans les prévisions des scientifiques, mais l'exploit est effrayant. Du Plantis à seulement 20 ans, il a de la marge et en plus, le saut n'est pas parfait. Il reste pas mal d'espace avant et au-dessus de la barre. Bon, beaucoup moins derrière, on va pas se le cacher, mais tout le monde en est convaincu. Il peut aller bien plus haut et il faudra pas attendre longtemps puisque la semaine suivante, à glasgo, duplantis va réitérer [Applaudissements] l'exploit. Cette fois, la barre ne bouge même pas et en 2 semaines, le monde de l'athlétisme aura droit a un aperçu de tous les futurs concours auquels mondo participera. Une première partie pour simplement s'assurer de la victoire, le plus souvent sans aucune difficulté, puis une lutte contre son propre record du monde. Comme bobka, duup planantiste, décide d'avancer centimètres par centimètre, bien sûr, pour les primes offertes par ses sponsors et les organisateurs de meeting à chaque record, entre 30000 et 100000 €, mais surtout comme bbka, pour contrôler sa carrière et sa propre progression, pour toujours avoir un objectif atteignable à court terme, histoire de maintenir la flamme, pour toujours donner le sentiment de pouvoir aller plus haut et aussi pour ne pas être invisibilisé dans un concours qu'il surdomine de toute façon. Car depuis que monondo est arrivé, le concours du soit à la perche n'offrirait plus aucun suspense sans la quête d'un énième record. Puis, c'est à Belgrade, en 2 202, que duplantis parvient à battre les 6- [Applaudissements] m2, et ça y est. Les prévision de notre étude deviennent définitivement obsolète et tout le monde n alors plus qu'une question en tête: quelle est la vraie limite de dupantis? Quelle est la vraie limite de l'homme en soit la perche? Mais pour répondre à ces questions, il faut déjà essayer de comprendre pourquoi lui arrive à faire ce que les autres n'envisagent même pas déjà. Physiquement, mondo se rapproche plus de bbka que de la villénie. Avec son MRE 81 et ses 79 kg, il est très rapide, plus que bbka, et à peine moins puissant que lui. Un rapport poids puissance fou qui lui offre une force de pénétration exceptionnelle et lui permet de plier des perches bien plus dur que tous ses concurrents, des perches qui, une fois replié, lui offriront un effet catapulte sans égal et niveau technique. Par contre, le Suédois n'a rien n envie à la villénie. En fait, il donne l'impression d'anticiper à la perfection toutes les phases du saut. Sa pose de perche est précise et ses sensations dans l'espace sont inné, travaillé depuis son enfance dans le sauttoir de son jardin, en plus, en concours. Sa régularité est impressionnante. Il semble pouvoir corriger ses micro défauts d'un saut à l'autre, en fait du Plantis. C'est le combo parfait entre bbka et la vilennie. Ces saut sont fluides, techniques, gracieux. C'est violent et doux à la fois, une sorte de magie. DUP planantis a déjà amélioré le record du monde 10 fois au moment où je vous parle, et il n'a que 24 ans. Et depuis 100 ans, les plus grands perchistes de l'histoire ont atteint leur apogé autour de la trentaine. Chaque année, il devient plus puissant et encore plus maître de son art, et il est fort probable donc qu'il soit encore meilleur dans 4 ans. Alors, forcément, il devra fournir un travail monstre pour aller là où personne ne s'est encore aventuré. Mais c'est aussi pour ça qu'il monte centimètres après centimètres pour avoir cette carotte constamment en ligne de mire. En février, monondo déclaré à la BBC vouloir passer 6 m3. Pas car ce serait sa limite. Non, non, juste parce que ça sonne cool. Son père, Greg, pense- lui qu'il peut atteindre les 6 M40, 20 de plus que la limite scientifique de notre étude? Et au final, seul sa mère tente de calmer le jeu en évoquant plutôt la nécessité de repenser les tapis de réception afin d'amortir correctement des chutes qui deviennent de plus en plus vertigineuse. Mais alors, jusquoù est la vraie limite? Ça y est, on y arrive. Ce que je vous propose donc, c'est d'essayer de nous-même la calculer. Déjà, pour les petits malins au fond de la classe, je vais préciser qu'on parle là d'un SAU déroulant sur la planète Terre, là où la gravité se mesure à 9,81 m par seconde carré. Vous verrez, c'est important. Et pour le reste, vous allez voir, c'est très simple. Je vous ai de toute façon déjà expliqué l'essentiel quand je vous ai décrit comment était transféré l'énergie en saut à la perche, et vous l'avez maintenant compris. Les nouvelles perches en matériaux composite permettent d'absorber, de conserver et de restituer quasiment l'intégralité de l'énergie de l'athlète. Alors maintenant, place au calcul. On suppose donc que l'énergie cinétique de la course d'élan est restitué à 100 % dans la perche. Du coup, on peut noter que l'énergie cinétique 1/2i de mv² est égale à MG, h, la formule de l'énergie, potentiel gravitationnel- où g désigne l'accélération de la pesanteur et M la masse du perchiste. En résolvant l'équation, ça fait donc h. La hauteur qu'on cherche est égale à v² sur 2G et vous comprenez là que la vitesse est donc l'élément déterminant. Pour du planti, elle a été mesurée à 10,3 m parse. Et rappelez-vous, nous avions noté g, la mesure de la gravité, à 9,81 m par seconde carré, ce qui nous donne notre hauteur h à 5,41 m. Bon, vous voyez que on n est pas vraiment là et vous avez peut-être déjà compris là où ça cloche. En fait, c'est 5 M41, ce serait la hauteur théorique Maxim à laquelle du plantiste pourrait placer l'entièreté de son corps au-dessus de la perche. Mais en réalité, si vous regardez les sauts, il en a pas vraiment besoin car grâce à son agilité- et on le voit sur les sauts- il a en fait juste besoin de placer son centre de gravité au-dessus de la barre, comme en saut en hauteur. Et vu que le centre de gravité de dupleantis a été mesuré à 1 M1, 5, 1,41 + 1 M1, ça nous fait 6,54. Bon, c'est un chiffre fou, mais un chiffre qui se rapproche également de celui d'une étud mené par le Comité olympique suédois pour évaluer les capacités de l'athlète. Ils avaient compilé tous ses résultats et d'autres données liées à chaque saut- altitude, météo- pour trouver, avec l'aide de l'intelligence artificielle, 6,51 m. Ces chiffres nous amèneraient dans une zone encore inconnue, une zone où personne ne pensait l'homme capable d'aller. Alors, forcément, il faut un peu relativiser ce chiffre. Déjà, les calculs sont un peu grossiers, même s'il donneent une très bonne approximation, mais surtout, car c'est le chiffre d'un saut parfait, un chiffre qui suggère une vitesse digne de d'un sprinter, une agilité d'un gymnaste et, surtout, l'utilisation d'une perche parfaite de par sa composition, qui restitue parfaitement l'énergie. En tout cas, ce chiffre, cette hauteur, ça représenterait le saut hypothétiquement parfait de mon dos. C'est donc un saut réalisable et d'ailleurs, du planti n'en est déjà pas passer si loin. Regardez, c'était à ClermontFerrand, le 25 février 2023. Ce jour-là, duuplantis passait une barre à 6,22, son 6e record du monde. Clermont est en ébullition. Arre du plantiste qui s'élève et ça pass. Et au ralenti, on voit que le saut se rapproche tellement de la perfection que Johann cassiram, docteur en sciences des Sports à l'université de franchecé et chercheur spécialisé en soit la perche, décida de l'analyser. Il en conclut: un bassin à 6 M50 et des pieds à 6 M40, sans toucher. Il y a 100 ans, la barre des 5 m semblait inatteignable. Il y a 50 ans, celle des 6 m paraissait intouchable. Et il y a 15 ans, l'homme a décidé de fixer sa limite proche des 6 m 15, sauf qu'aujourd'hui nous savons déjà qu'elle se situe au minimum à 6 M40 et que du blantis pourrait théoriquement se rapprocher des 6 M50. Alors, oui, c'est vrai, en soit la perche, nous nous rapprochons de notre limite, c'est indéniable, mais l'homme semble sans arrêt s'obstiner à la repousser. Alors, est-ce que cette quête de record est essentiel au sport? Ça, c'est un autre débat. Mais ce qui est sûr, c'est que nous avons, depuis 200 ans, choisi de ne presque jamais dire non au progrès, tout en nous fixant paradoxalement, systématiquement, des limites. Alors, dans 10 ans, lorsque duplanti sera allé au bout de sa quête, on essaiera sûrement de nous convaincre qu'il ne sera jamais plus possible d'aller aussi haut, et à ce moment-là, chacun sera alors libre d'y croire. [Musique].\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/get-video-embeddings",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"get-video-embeddings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get recommended videos Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"videoId\": \"cX9V3iNBUoo\",\n    \"transcript\": \"L'intelligence artificielle a révolutionné de nombreux aspects de notre vie de tous les jours. Composée de données, d’algorithmes, de matériel et de connectivité, l’IA permet aux machines d’imiter certains aspects de l'intelligence humaine comme la perception, la résolution de problèmes,  l'interaction linguistique ou même la créativité. Ces technologies facilitent la mise en œuvre du Programme de développement durable à l’horizon 2030. Par exemple, l’IA permet d’analyser l’apprentissage des élèves et leur fournit de meilleurs outils dans les zones rurales où l’enseignement manque de ressources. Les principes DOAM de l’UNESCO guident le développement de l’IA et s’assurent qu’il respecte les droits de l’homme, qu’il soit ouvert, accessible, basé sur une gouvernance multi-parties prenantes et inclusif,   en particulier en matière de genre.    Pour en savoir plus sur l’IA et les droits de l’homme, regardez la prochaine vidéo !\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8084/get-recommended-videos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8084",
+							"path": [
+								"get-recommended-videos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Translation Service",
+			"item": [
+				{
+					"name": "Translate text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://monjoor-translation-203751395944.europe-west6.run.app/translate?word=Bonjour, je m'appelle dimitri.",
+							"protocol": "https",
+							"host": [
+								"monjoor-translation-203751395944",
+								"europe-west6",
+								"run",
+								"app"
+							],
+							"path": [
+								"translate"
+							],
+							"query": [
+								{
+									"key": "word",
+									"value": "Bonjour, je m'appelle dimitri."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "YoutubeTranscript Service",
+			"item": [
+				{
+					"name": "Get Video Transcript",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\":\"49NGZ940Dk4\",\n    \"video_language\":\"fr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/get-video-transcript",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"get-video-transcript"
+							],
+							"query": [
+								{
+									"key": "video_id",
+									"value": "N0_XyaqoUUo",
+									"disabled": true
+								},
+								{
+									"key": "video_id",
+									"value": "mxOCO8TKIRo",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Video Raw Transcript",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\":\"sJAnSiWrjRk\",\n    \"video_language\":\"fr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8082/get-video-transcript-without-punctuation",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8082",
+							"path": [
+								"get-video-transcript-without-punctuation"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
