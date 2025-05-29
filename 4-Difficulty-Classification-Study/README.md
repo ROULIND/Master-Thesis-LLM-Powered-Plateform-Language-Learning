@@ -1,9 +1,3 @@
-Of course! Here’s your improved README with an image section at the top.
-Just **replace the image filename** (`Summary-Results.png`) with your actual image file in the repo (e.g., a confusion matrix, results summary, or final leaderboard).
-If your image is in `6-Images/`, adapt the path accordingly.
-
----
-
 # Difficulty Classification Study
 
 <img src="../6-Images/Difficulty-Classification-Summary.png" alt="Difficulty Classification Results" style="width: 80%; margin: 24px 0;">
