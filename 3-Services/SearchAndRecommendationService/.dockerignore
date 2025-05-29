@@ -1,9 +1,0 @@
-__pycache__/
-.cache/
-SearchAndRecoVenv/
-*.pyc
-*.pyo
-*.pyd
-venv/
-.venv/
-

@@ -1,6 +1,0 @@
-flask
-flask-cors
-transformers[onnx]
-onnxruntime
-google-cloud-storage
-torch

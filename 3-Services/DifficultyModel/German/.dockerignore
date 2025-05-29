@@ -1,7 +1,0 @@
-# Exclude specific large models
-germanDifficultyModel/model.onnx
-germanDifficultyModel/model.safetensors
-
-# Exclude Python scripts
-convert-to-onnx.py
-app-onnx.py
