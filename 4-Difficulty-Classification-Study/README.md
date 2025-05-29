@@ -1,6 +1,6 @@
 # Difficulty Classification Study
 
-<img src="../6-Images/Difficulty-Classification-Summary.png" alt="Difficulty Classification Results" style="width: 80%; margin: 24px 0;">
+
 
 *Final summary of model performances for CEFR-level sentence difficulty classification in German and French.*
 
@@ -48,6 +48,8 @@ The goal of this study is to evaluate the ability of various language models to 
 ---
 
 ## Key Results
+
+<img src="../6-Images/Difficulty-Classification-Summary.png" alt="Difficulty Classification Results" style="width: 60%; margin: 24px 0;">
 
 * **Fine-tuned transformer models** (like XLM-RoBERTa, CamemBERT) provide strong baselines for CEFR-level prediction, outperforming zero-shot LLMs on in-domain test data.
 * **LLMs** (e.g., GPT-4, Gemini) demonstrate promising generalization in zero-shot and few-shot settings, especially for mid-level CEFR categories (B1/B2).
