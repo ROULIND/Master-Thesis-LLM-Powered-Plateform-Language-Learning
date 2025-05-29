@@ -1,0 +1,103 @@
+/* Checked */
+.dashboard-container {
+    width: 100%;
+    background-color: #F79D6529;
+    padding: 20px;
+    box-sizing: border-box; /* Add this line */
+  
+}
+
+.dashboard-header {
+  margin-bottom: 20px;
+  text-align: center;
+
+}
+
+.dashboard-header h1 {
+  font-size: 32px;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+
+.dashboard-content2 {
+  display: grid;
+  grid-template-columns: 1fr; /* Set the default to take full width */
+  gap: 20px;
+}
+.box-content2 {
+  border-radius: 5px;
+  padding: 10px;
+}
+.box-content2:nth-child(2) {
+  flex: 30%;
+}
+@media (min-width: 768px) {
+  .dashboard-content2 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+.dashboard-box {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 1000px) {
+  .dashboard-content {
+    grid-template-columns: 1fr; /* Change to single column layout */
+  }
+  .dashboard-box:nth-child(1) {
+    grid-column: span 1; /* Make the first box take 2 columns (70%) */
+  }
+  .dashboard-box:nth-child(2) {
+    grid-column: span 2; /* Make the second box take 1 column (30%) */
+  }
+  .dashboard-box:nth-child(2) {
+    margin-right: 0; /* Reset the margin */
+  }
+}
+.dashboard-box:nth-child(1) {
+  grid-column: span 2; /* Make the first box take 2 columns (70%) */
+}
+
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.status-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.connected {
+  color: green;
+}
+
+.not-connected {
+  color: red;
+}
+
+.error-text {
+  font-size: 14px;
+  color: red;
+}
