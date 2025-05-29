@@ -52,6 +52,7 @@ ADMIN_PASSWORD=<your_admin_password>
 * Do **not** commit your `.env` or service account key to version control.
 * All variables are required for the service to function.
 * Adjust service URLs for your deployment (local, staging, or production).
+* Ensure that you admin password match the one configured for the [Admin App](../1-Admin/)
 
 ---
 
