@@ -1,0 +1,82 @@
+{
+  "monjoor-videos-index": {
+    "mappings": {
+      "_meta": {
+        "created_by": "file-data-visualizer"
+      },
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "category_id": {
+          "type": "keyword"
+        },
+        "channel_title": {
+          "type": "keyword"
+        },
+        "embeddings": {
+          "properties": {
+            "embeddings": {
+              "type": "dense_vector",
+              "dims": 384,
+              "index": true,
+              "similarity": "cosine",
+              "index_options": {
+                "type": "int8_hnsw",
+                "m": 16,
+                "ef_construction": 100
+              }
+            }
+          }
+        },
+        "entities": {
+          "type": "text",
+          "analyzer": "edge_ngram_analyzer",
+          "search_analyzer": "standard"
+        },
+        "likes": {
+          "type": "keyword"
+        },
+        "publish_time": {
+          "type": "date",
+          "format": "iso8601"
+        },
+        "subtopics": {
+          "type": "text",
+          "analyzer": "edge_ngram_analyzer",
+          "search_analyzer": "standard"
+        },
+        "title": {
+          "type": "text",
+          "analyzer": "edge_ngram_analyzer",
+          "search_analyzer": "standard"
+        },
+        "topics": {
+          "type": "text",
+          "analyzer": "edge_ngram_analyzer",
+          "search_analyzer": "standard"
+        },
+        "transcript_embedding": {
+          "type": "dense_vector",
+          "dims": 384,
+          "index": true,
+          "similarity": "cosine",
+          "index_options": {
+            "type": "int8_hnsw",
+            "m": 16,
+            "ef_construction": 100
+          }
+        },
+        "videoDifficulty": {
+          "type": "keyword"
+        },
+        "video_id": {
+          "type": "keyword"
+        },
+        "views": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
